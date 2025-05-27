@@ -5,7 +5,7 @@ plugins:
 spec_server: specs.amwa.tv
 
 # AMWA ID
-amwa_id: BCP-IPMX-PEP
+amwa_id: BCP-005-03
 
 # Base name for site (typically lower case version of AMWA ID, or the repo name)
 baseurl: /bcp-ipmx-pep
