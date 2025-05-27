@@ -8,26 +8,6 @@ _(c) AMWA 2021, CC Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)_
 
 ![NMOS logo](images/NMOS-logo.png)
 
-> ## Instructions
->
-> **Delete this section after creating a new repo from this template.**
->
->Use this template repo to create a new AMWA NMOS Best Common Practice repo.
->
-> Add your content as (GitHub Flavoured) Markdown documents.
->
-> - For consistency with other specifications, keep this `Overview.md` but remove these Instructions.
->
-> Put diagrams (ideally PNG with encapsulated draw.io source) in the `images/` sub-directory.
->
-> Follow the [Style Guide](Style%20Guide.md).
->
-> Make a bulleted list of documents in `README.md` in this directory.
-> 
-> Set the repo name used to get the Lint and Render status in the top-level `README.md` (four changes needed).
->
-> Set the value of `amwa_id` in `.render/_config.yml` to the AMWA-assigned ID.
-
 ## Introduction
 
 > Provide an overview of the Specification.
