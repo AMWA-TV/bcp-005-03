@@ -1,7 +1,7 @@
-# \[Work In Progress\] AMWA BCP-005-03 NMOS Support for IPMX/PEP
+# \[Work In Progress\] AMWA BCP-005-03: NMOS Support for IPMX/PEP
 
-[![Lint Status](https://github.com/AMWA-TV/bcp-ipmx-pep/workflows/Lint/badge.svg)](https://github.com/AMWA-TV/bcp-ipmx-pep/actions?query=workflow%3ALint)
-[![Render Status](https://github.com/AMWA-TV/bcp-ipmx-pep/workflows/Render/badge.svg)](https://github.com/AMWA-TV/bcp-ipmx-pep/actions?query=workflow%3ARender)
+[![Lint Status](https://github.com/AMWA-TV/bcp-005-03/workflows/Lint/badge.svg)](https://github.com/AMWA-TV/bcp-005-03/actions?query=workflow%3ALint)
+[![Render Status](https://github.com/AMWA-TV/bcp-005-03/workflows/Render/badge.svg)](https://github.com/AMWA-TV/bcp-005-03/actions?query=workflow%3ARender)
 
 This repository holds the source for this Specification, part of the family of [Networked Media Open Specifications](https://specs.amwa.tv/nmos) from the [Advanced Media Workflow Association](https://amwa.tv)
 
