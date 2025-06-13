@@ -48,8 +48,6 @@ A Node compliant with this specification MUST implement [IS-04][] v1.3 or higher
 
 As indicated in [TR-10-13][], the provisioning of PSK(s) in devices supporting the Privacy Encryption Protocol (PEP) is under the control of the device manufacturer.
 
-An NMOS API MUST NOT allow the provisioning of PSKs in devices.
-
 Refer to the "Key Distribution" section of [TR-10-13][] for more details about the key distribution and provisioning processes.
 
 The provisioning of PSKs is intentionally under manufacturer control, providing flexibility in implementation methods to support diverse deployment environments and security requirements.
@@ -64,15 +62,15 @@ A PSK has a value and a size (128, 256, or 512 bits). Each PSK is identified by 
 
 Each Sender using privacy encryption MUST be associated with a provisioned PSK via its `key_id`. Each Receiver using privacy encryption MUST be associated with a set of provisioned PSKs, identified by their `key_id` values. 
 
-A Sender MUST populate the `ext_privacy_key_id` extended transport parameter in the IS-05 `active`, `staged` and `constraints` endpoints with the `key_id` of its associated PSK.
+A Sender MUST populate the `ext_privacy_key_id` extended transport parameter in the IS-05 `active`, `staged` and `constraints` endpoints with the `key_id` of its associated PSK. A Sender that is not associated with a PSK MUST NOT expose the IS-05 extended transport parameters of the Privacy Encryption Protocol.
 
-A Receiver MUST populate the `ext_privacy_key_id` extended transport parameter in the IS-05 `constraints` endpoint with all acceptable `key_id` values. At activation time, a Receiver using privacy encryption becomes associated with one of the provisioned PSKs through the `ext_privacy_key_id` extended transport parameter. A Receiver MUST fail activation if the provided `key_id` is not provisioned in the device or is not listed in the Receiver's `ext_privacy_key_id` transport parameter constraints.
+A Receiver MUST populate the `ext_privacy_key_id` extended transport parameter in the IS-05 `constraints` endpoint with all acceptable `key_id` values. At activation time, a Receiver using privacy encryption becomes associated with one of the provisioned PSKs through the `ext_privacy_key_id` extended transport parameter. A Receiver MUST fail activation if the provided `key_id` is not provisioned in the device or is not listed in the Receiver's `ext_privacy_key_id` transport parameter constraints. A Receiver that is not associated with any PSK MUST NOT expose the IS-05 extended transport parameters of the Privacy Encryption Protocol.
 
 ## Enabling/Disabling Privacy Encryption
 
 As indicated in [TR-10-13][], the enabling and disabling of privacy encryption in devices supporting the PEP technology is under the control of the device manufacturer.
 
-An NMOS API MUST NOT allow to change the state (enabled or disabled) of privacy encryption.
+The IS-05 NMOS API MUST NOT allow to change the state (enabled or disabled) of privacy encryption.
 
 Refer to the "SDP Transport File Parameters / NMOS Transport Parameters" section of [TR-10-13][] for further details on how privacy encryption is enabled or disabled.
 
@@ -104,9 +102,18 @@ ext_privacy_ecdh_curve | string | - | r/w | r/w
 
 ### IS-05 Transport Parameters
 
-A Sender/Receiver implementing [TR-10-13][] MUST provide the following extended transport parameters in the IS-05 `active`, `staged` and `constraints` endpoints: `ext_privacy_protocol`, `ext_privacy_mode`, `ext_privacy_iv`, `ext_privacy_key_generator`, `ext_privacy_key_version`, and `ext_privacy_key_id`.
+A Sender/Receiver implementing [TR-10-13][] MUST provide the following extended transport parameters in the IS-05 `active`, `staged` and `constraints` endpoints:
+- `ext_privacy_protocol`
+- `ext_privacy_mode`
+- `ext_privacy_iv`
+- `ext_privacy_key_generator`
+- `ext_privacy_key_version`
+- `ext_privacy_key_id`
 
-A Sender/Receiver implementing [TR-10-13][] and supporting ECDH modes MUST also provide the following extended transport parameters in the IS-05 `active`, `staged`, and `constraints` endpoints: `ext_privacy_ecdh_sender_public_key`, `ext_privacy_ecdh_receiver_public_key`, and `ext_privacy_ecdh_curve`.
+A Sender/Receiver implementing [TR-10-13][] and supporting ECDH modes MUST also provide the following extended transport parameters in the IS-05 `active`, `staged`, and `constraints` endpoints: 
+- `ext_privacy_ecdh_sender_public_key`
+- `ext_privacy_ecdh_receiver_public_key`
+- `ext_privacy_ecdh_curve`
 
 The `ext_privacy_*` transport parameters MAY be used with any transport supporting privacy encryption and having a protocol adaptation specified in [TR-10-13][], [TR-10-14][], other VSF/IPMX technical recommendations, or this specification.
 
@@ -122,9 +129,16 @@ The `constraints` endpoint of the parameter `ext_privacy_ecdh_curve` on both Sen
 
 ### Protocol
 
-The `protocol` parameter MUST be one of the following: "RTP", "RTP_KV", "USB", "USB_KV", or "NULL".
+The `protocol` parameter MUST be one of the following:
+- "RTP"
+- "RTP_KV"
+- "USB"
+- "USB_KV"
+- "NULL"
 
 If privacy encryption is disabled or not supported by a Sender/Receiver, and the `ext_privacy_*` transport parameters are present, the "NULL" protocol MUST be used for the `ext_privacy_protocol` transport parameter in the `active` and `staged` endpoints to indicate that privacy encryption is not available or is disabled. The associated constraints MUST allow only the "NULL" protocol when the `ext_privacy_protocol` parameter is "NULL".
+
+Note: The string "NULL" is not equivalent to the JSON `null` value.
 
 The "RTP" `protocol` MUST be supported by all devices implementing [TR-10-13][] for the `urn:x-nmos:transport:rtp`, `urn:x-nmos:transport:rtp.mcast`, and `urn:x-nmos:transport:rtp.ucast` transports.
 
@@ -138,8 +152,22 @@ The "USB" `protocol` MAY be supported by devices supporting the "USB_KV" `protoc
 
 If privacy encryption is disabled or not supported by a Sender/Receiver, and the `ext_privacy_*` transport parameters are present, the "NULL" mode MUST be used for the `ext_privacy_mode` transport parameter in the `active` and `staged` endpoints to indicate that privacy encryption is not available or is disabled. The associated constraints MUST allow only the "NULL" mode when the `ext_privacy_mode` parameter is "NULL".
 
+Note: The string "NULL" is not equivalent to the JSON `null` value.
+
 #### For protocols "RTP" and "RTP_KV"
-The `mode` parameter MUST be one of the following: "AES-128-CTR", "AES-256-CTR", "AES-128-CTR_CMAC-64", "AES-256-CTR_CMAC-64", "AES-128-CTR_CMAC-64-AAD", "AES-256-CTR_CMAC-64-AAD", "ECDH_AES-128-CTR", "ECDH_AES-256-CTR", "ECDH_AES-128-CTR_CMAC-64", "ECDH_AES-256-CTR_CMAC-64", "ECDH_AES-128-CTR_CMAC-64-AAD", or "ECDH_AES-256-CTR_CMAC-64-AAD".
+The `mode` parameter MUST be one of the following:
+- "AES-128-CTR"
+- "AES-256-CTR"
+- "AES-128-CTR_CMAC-64"
+- "AES-256-CTR_CMAC-64"
+- "AES-128-CTR_CMAC-64-AAD"
+- "AES-256-CTR_CMAC-64-AAD"
+- "ECDH_AES-128-CTR"
+- "ECDH_AES-256-CTR"
+- "ECDH_AES-128-CTR_CMAC-64"
+- "ECDH_AES-256-CTR_CMAC-64"
+- "ECDH_AES-128-CTR_CMAC-64-AAD"
+- "ECDH_AES-256-CTR_CMAC-64-AAD".
 
 The "AES-128-CTR" `mode` MUST be supported by all devices implementing the "RTP" or "RTP_KV" protocols.
 
