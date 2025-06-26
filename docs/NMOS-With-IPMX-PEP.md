@@ -182,7 +182,11 @@ A Receiver configured with a 256-bit or 512-bit PSK MUST support modes based on 
 The PEP "urn:ietf:params:rtp-hdrext:PEP-Full-IV-Counter" and "urn:ietf:params:rtp-hdrext:PEP-Short-IV-Counter" RTP Extension Headers MUST be declared in the SDP transport file. The declaration MUST be performed as per [RFC-8285][], using the "sendonly" direction.
 
 #### For protocol "USB" and "USB_KV"
-The `mode` parameter MUST be one of the following: "AES-128-CTR_CMAC-64-AAD", "AES-256-CTR_CMAC-64-AAD", "ECDH_AES-128-CTR_CMAC-64-AAD", or "ECDH_AES-256-CTR_CMAC-64-AAD".
+The `mode` parameter MUST be one of the following:
+- "AES-128-CTR_CMAC-64-AAD"
+- "AES-256-CTR_CMAC-64-AAD"
+- "ECDH_AES-128-CTR_CMAC-64-AAD"
+- "ECDH_AES-256-CTR_CMAC-64-AAD"
 
 The "AES-128-CTR_CMAC-64-AAD" `mode` MUST be supported by all devices implementing the "USB" or "USB_KV" protocols.
 
@@ -194,7 +198,7 @@ The `ecdh_curve` parameter MUST be one of the following: "secp256r1", "secp521r1
 
 If the ECDH modes are not supported by a Sender/Receiver and the `ext_privacy_*` transport parameters are present, the "NULL" curve MUST be used for the `ext_privacy_ecdh_curve` transport parameter in the `active` and `staged` endpoints to indicate that ECDH modes are not available. The associated constraints MUST allow only the "NULL" curve when the `ext_privacy_ecdh_curve` parameter is "NULL".
 
-The "secp256r1" `ecdh_curve` MUST be supported by all devices that implement  ECDH modes.
+The "secp256r1" `ecdh_curve` MUST be supported by all devices that implement ECDH modes.
 
 The ECDH functionality is available exclusively through the IS-05 extended transport parameters. There are no ECDH-related parameters defined in the `privacy` attribute of an SDP transport file. ECDH modes of operation are optional, and support for these ECDH-based modes is not required for conformance with [TR-10-13][], [TR-10-14][], or other VSF/IPMX technical recommendations.
 
