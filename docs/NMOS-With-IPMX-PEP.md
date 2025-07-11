@@ -275,7 +275,7 @@ If a mismatch is detected in the `protocol`, `mode`, or `ecdh_curve` parameters,
 
 > Note: IS-11 operates at the IS-04 capabilities/constraints level and cannot be used to constrain privacy encryption, which is managed using IS-05.
 
-A Controller MAY perform the compatibility check at the IS-05 level only for Senders and Receivers that do not implement this specification. These are Senders not providing the privacy attribute nor the urn:x-nmos:cap:transport:privacy capability, and Receivers not providing the urn:x-nmos:cap:transport:privacy capability. Such Senders and Receivers MAY still be compliant with [TR-10-13][], and provide privacy encryption through IS-05 transport parameters and the SDP transport file.
+A Controller MAY perform the compatibility check at the IS-05 level only for Senders and Receivers that do not implement this specification. These are Senders not providing the `privacy` attribute nor the `urn:x-nmos:cap:transport:privacy` capability, and Receivers not providing the `urn:x-nmos:cap:transport:privacy` capability. Such Senders and Receivers MAY still be compliant with [TR-10-13][], and provide privacy encryption through IS-05 transport parameters and the SDP transport file.
 
 ### IS-05 Sender Activation
 
