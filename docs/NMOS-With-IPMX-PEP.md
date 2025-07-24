@@ -251,9 +251,9 @@ A Receiver MUST provide a `urn:x-nmos:cap:transport:privacy` capability to indic
 
 A Controller MUST verify Receivers' compliance with an active Sender using privacy encryption and the PEP protocol. 
 
-A Controller establishes that an active Sender is using privacy encryption and the PEP protocol by checking the Sender’s SDP transport file for a `privacy` attribute, or by checking the Sender's `privacy` attribute, or by checking the Sender's `urn:x-nmos:cap:transport:privacy` capability, or by verifying the Sender's IS-05  `ext_privacy_*` extended transport parameters at the `active` endpoint.
+A Controller establishes that an active Sender is using privacy encryption and the PEP protocol by checking the Sender's `privacy` attribute, or by checking the Sender’s SDP transport file for a `privacy` attribute, or by checking the Sender's `urn:x-nmos:cap:transport:privacy` capability, or by verifying the Sender's IS-05  `ext_privacy_*` extended transport parameters at the `active` endpoint.
 
-The presence of a `privacy` attribute in the SDP transport file, or the `true` value for the Sender's `privacy` attribute, indicate that the stream is privacy-protected. 
+The Sender's `privacy` attribute being set to `true` or the presence of the `privacy` attribute in the SDP transport file, indicates that the stream is privacy-protected. 
 
 Similarly, the Sender's IS-04 `urn:x-nmos:cap:transport:privacy` capability, enumerating the value `true`, indicates that the stream is privacy-protected. 
 
@@ -275,7 +275,7 @@ If a mismatch is detected in the `protocol`, `mode`, or `ecdh_curve` parameters,
 
 > Note: IS-11 operates at the IS-04 capabilities/constraints level and cannot be used to constrain privacy encryption, which is managed using IS-05.
 
-A Controller MAY perform the compatibility check at the IS-05 level only for Senders and Receivers that do not implement this specification. These are Senders not providing the `privacy` attribute nor the `urn:x-nmos:cap:transport:privacy` capability, and Receivers not providing the `urn:x-nmos:cap:transport:privacy` capability. Such Senders and Receivers MAY still be compliant with [TR-10-13][], and provide privacy encryption through IS-05 transport parameters and the SDP transport file.
+A Controller MAY perform the compatibility checks limited to the IS-05 level for Senders and Receivers that do not implement this specification. These are Senders not providing the `privacy` attribute nor the `urn:x-nmos:cap:transport:privacy` capability, and Receivers not providing the `urn:x-nmos:cap:transport:privacy` capability. Such Senders and Receivers MAY still be compliant with [TR-10-13][], and provide privacy encryption through IS-05 transport parameters and the SDP transport file.
 
 ### IS-05 Sender Activation
 
@@ -285,7 +285,7 @@ The values of the `privacy` attribute parameters in the SDP transport file of an
 
 The [TR-10-13][] expression "becomes inactive", in the context of the ECDH private/public key pair, MUST be interpreted as an activation with `master_enable` set to `false`, resulting in `master_enable` remaining or becoming `false` at the `active` endpoint of a Sender.
 
-> Note: In other non-ECDH contexts, "becomes inactive" is interpreted as either (a) internally becoming momentarily inactive during an activation where `master_enable` is set to `true`, resulting in `master_enable` remaining `true` at the `active` endpoint of a Sender (re-activation), or (b) becoming inactive during an activation with `master_enable` set to `false`, resulting in `master_enable` remaining or becoming `false` at the `active` endpoint of a Sender (de-activation).
+> Note: In other non-ECDH contexts, the expression "becomes inactive" is caused by either (a) internally becoming momentarily inactive during an activation where `master_enable` is set to `true`, resulting in `master_enable` remaining `true` at the `active` endpoint of a Sender (re-activation), or (b) becoming inactive during an activation with `master_enable` set to `false`, resulting in `master_enable` remaining or becoming `false` at the `active` endpoint of a Sender (de-activation).
 
 During an activation (`master_enable` becomes true) or re-activation (`master_enable` remains true), a Sender MAY change all privacy encryption parameters, but the Sender's ECDH private/public key pair MUST remain unchanged.
 
@@ -311,7 +311,7 @@ For transports supporting an SDP transport file, if the ECDH mode is not used, t
 
 The [TR-10-13][] expression "becomes inactive", in the context of the ECDH private/public key pair, MUST be interpreted as an activation with `master_enable` set to `false`, resulting in `master_enable` remaining or becoming `false` at the `active` endpoint of a Receiver.
 
-> Note: In other non-ECDH contexts, the expression "become inactive" is interpreted as either (1) internally becoming momentarily inactive during an activation with `master_enable` set to `true`, resulting in `master_enable` remaining `true` at the Receiver's `active` endpoint (re-activation), or (2) becoming inactive during an activation with `master_enable` set to `false`, resulting in `master_enable` remaining or becoming `false` at the Receiver's `active` endpoint (de-activation).
+> Note: In other non-ECDH contexts, the expression "become inactive" is caused by either (1) internally becoming momentarily inactive during an activation with `master_enable` set to `true`, resulting in `master_enable` remaining `true` at the Receiver's `active` endpoint (re-activation), or (2) becoming inactive during an activation with `master_enable` set to `false`, resulting in `master_enable` remaining or becoming `false` at the Receiver's `active` endpoint (de-activation).
 
 During an activation (`master_enable` becomes `true`) or re-activation (`master_enable` remains true), a Receiver MAY change all privacy encryption parameters, but the Receiver's ECDH private/public key pair MUST remain unchanged.
 
