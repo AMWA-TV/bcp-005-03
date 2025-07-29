@@ -331,7 +331,22 @@ A Controller MUST provide the value of the peer Sender's `ext_privacy_ecdh_sende
 
 With ECDH, a Controller MUST exchange the Sender's and Receiver's public keys in order to activate an ECDH session. The ECDH functionality is available for peer-to-peer connections only. A Sender becomes associated with a peer Receiver at activation, when `master_enable` becomes `true`.
 
-## RTP Transport Adaptation
+### Sequence Diagrams (Informative)
+
+The following sequence diagram illustrate a Controller evaluating the privacy encryption compliance of a Receiver with a Sender in a non-ECDH scenario. The Controller optionally reconfigure the Sender to match with the Receiver capabilities. This process is performed while the Sender and Receiver are inactive (master_enable is false).
+
+| ![Sequence Diagram without ECDH](images/Sequence-General.png) |
+|:--:|
+| _**Sequence Diagram without ECDH**_ |
+
+The following sequence diagram illustrate a Controller evaluating the privacy encryption compliance of a Receiver with a Sender in an ECDH scenario. The Controller minimally reconfigure the Sender by passing the Receiver's ECDH public key and optionally reconfigure of the Sender to match with the Receiver capabilities. This process is performed while the Sender and Receiver are inactive (master_enable is false).
+
+
+| ![Sequence Diagram with ECDH](images/Sequence-ECDH.png) |
+|:--:|
+| _**Sequence Diagram with ECDH**_ |
+
+## RTP Transport Adaptation (Informative)
 
 This `protocol` is used for `urn:x-nmos:transport:rtp`, `urn:x-nmos:transport:rtp.mcast`, and `urn:x-nmos:transport:rtp.ucast`.
 
