@@ -70,7 +70,7 @@ A Receiver MUST populate the `ext_privacy_key_id` extended transport parameter i
 
 As indicated in [TR-10-13][], the enabling and disabling of privacy encryption in devices supporting the PEP technology is under the control of the device manufacturer.
 
-The IS-05 NMOS API MUST NOT allow to change the state (enabled or disabled) of privacy encryption.
+Devices MUST NOT allow changes to the state (enabled or disabled) of privacy encryption through the IS-05 NMOS API
 
 Refer to the "SDP Transport File Parameters / NMOS Transport Parameters" section of [TR-10-13][] for further details on how privacy encryption is enabled or disabled.
 
