@@ -333,7 +333,7 @@ With ECDH, a Controller MUST exchange the Sender's and Receiver's public keys in
 
 ### Sequence Diagrams (Informative)
 
-The following sequence diagram illustrate a Controller evaluating the privacy encryption compliance of a Receiver with a Sender in a non-ECDH scenario. The Controller optionally reconfigure the Sender to match with the Receiver capabilities. This process is performed while the Sender and Receiver are inactive (master_enable is false).
+The following sequence diagram illustrates a Controller evaluating the privacy encryption compliance of a Receiver with a Sender in a non-ECDH scenario. The Controller optionally reconfigures the Sender to match the Receiver capabilities. This process is performed while the Sender and Receiver are inactive (master_enable is false).
 
 | ![Sequence Diagram without ECDH](images/Sequence-General.png) |
 |:--:|
