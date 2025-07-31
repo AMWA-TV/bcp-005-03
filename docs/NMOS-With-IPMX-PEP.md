@@ -339,7 +339,7 @@ The following sequence diagram illustrates a Controller evaluating the privacy e
 |:--:|
 | _**Sequence Diagram without ECDH**_ |
 
-The following sequence diagram illustrate a Controller evaluating the privacy encryption compliance of a Receiver with a Sender in an ECDH scenario. The Controller minimally reconfigure the Sender by passing the Receiver's ECDH public key and optionally reconfigure of the Sender to match with the Receiver capabilities. This process is performed while the Sender and Receiver are inactive (master_enable is false).
+The following sequence diagram illustrates a Controller evaluating the privacy encryption compliance of a Receiver with a Sender in an ECDH scenario. The Controller reconfigures the Sender by passing the Receiver's ECDH public key and optionally changes other Sender transport parameters to match the Receiver capabilities. This process is performed while the Sender and Receiver are inactive (master_enable is false).
 
 
 | ![Sequence Diagram with ECDH](images/Sequence-ECDH.png) |
