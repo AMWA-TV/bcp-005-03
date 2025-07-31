@@ -259,7 +259,7 @@ Similarly, the Sender's IS-04 `urn:x-nmos:cap:transport:privacy` capability, enu
 
 Finally, the presence of the Sender's IS-05 `ext_privacy_protocol` and `ext_privacy_mode` transport parameters at the `active` endpoint with a value other than "NULL" indicate that the stream is privacy-protected.
 
-When considering an inactive Sender, a Controller MUST NOT rely on the content of the SDP transport file as it MAY NOT be available until the Sender becomes active.
+When considering an inactive Sender, a Controller MUST NOT rely on the content of the SDP transport file as it MAY NOT be available or up to date until the Sender becomes active.
 
 Only Receivers that support privacy encryption and the PEP protocol MAY consume such streams.
 
