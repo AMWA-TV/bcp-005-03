@@ -1,0 +1,31 @@
+{
+    "receiver_id": null,
+    "master_enable": true,
+    "activation": {
+        "mode": "activate_immediate",
+        "requested_time": null,
+        "activation_time": "1754572127:186655967"
+    },
+    "transport_params": [
+        {
+            "source_ip": "192.168.0.1",
+            "destination_ip": "239.0.0.1",
+            "source_port": 27500,
+            "destination_port": 27500,
+            "rtcp_enabled": true,
+            "rtcp_destination_ip": "239.0.0.1",
+            "rtcp_destination_port": 27501,
+            "rtcp_source_port": 27501,
+            "rtp_enabled": true,
+            "ext_privacy_protocol": "RTP",
+            "ext_privacy_mode": "AES-128-CTR",
+            "ext_privacy_iv": "7015359753a652a7",
+            "ext_privacy_key_generator": "fb1b6b3edb235db27551821f253b1c53",
+            "ext_privacy_key_id": "0001020304050607",
+            "ext_privacy_key_version": "90bb579f",
+            "ext_privacy_ecdh_sender_public_key": "601d50d0061c2e9fc99a07e3d95b83283a4a5ca8f3f1975966d145d8f83f2fb4",
+            "ext_privacy_ecdh_receiver_public_key": "00",
+            "ext_privacy_ecdh_curve": "25519"
+        }
+    ]
+}
