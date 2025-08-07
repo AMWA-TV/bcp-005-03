@@ -1,0 +1,92 @@
+[
+    {
+        "destination_ip": {},
+        "destination_port": {},
+        "ext_privacy_ecdh_curve": {
+            "enum": [
+                "25519",
+                "secp256r1"
+            ]
+        },
+        "ext_privacy_ecdh_receiver_public_key": {},
+        "ext_privacy_ecdh_sender_public_key": {
+            "description": "read-only",
+            "enum": [
+                "05f7cf316b38af2ee317d6c9cb81e7122b8d72ffb25308ddbeae64f07a90f8aa"
+            ]
+        },
+        "ext_privacy_iv": {
+            "description": "read-only",
+            "enum": [
+                "16b25015a8d12119"
+            ]
+        },
+        "ext_privacy_key_generator": {
+            "description": "read-only",
+            "enum": [
+                "d6a1a97b2d17395ef3fabe1d7701a3be"
+            ]
+        },
+        "ext_privacy_key_id": {
+            "description": "read-only",
+            "enum": [
+                "0001020304050607"
+            ]
+        },
+        "ext_privacy_key_version": {
+            "description": "read-only",
+            "enum": [
+                "f0a5491c"
+            ]
+        },
+        "ext_privacy_mode": {
+            "enum": [
+                "AES-128-CTR",
+                "ECDH_AES-128-CTR",
+                "AES-256-CTR",
+                "ECDH_AES-256-CTR"
+            ]
+        },
+        "ext_privacy_protocol": {
+            "enum": [
+                "RTP",
+                "RTP_KV"
+            ]
+        },
+        "rtcp_destination_ip": {
+            "enum": [
+                "auto"
+            ]
+        },
+        "rtcp_destination_port": {
+            "enum": [
+                "auto"
+            ]
+        },
+        "rtcp_enabled": {
+            "enum": [
+                true
+            ]
+        },
+        "rtcp_source_port": {
+            "enum": [
+                27501
+            ]
+        },
+        "rtp_enabled": {
+            "enum": [
+                true
+            ]
+        },
+        "source_ip": {
+            "enum": [
+                "192.168.0.1"
+            ]
+        },
+        "source_port": {
+            "enum": [
+                27500
+            ]
+        }
+    }
+]
