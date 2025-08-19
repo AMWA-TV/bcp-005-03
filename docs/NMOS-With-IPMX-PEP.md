@@ -346,7 +346,7 @@ The following sequence diagram illustrates a Controller evaluating the privacy e
 |:--:|
 | _**Sequence Diagram with ECDH**_ |
 
-## RTP Transport Adaptation (Informative)
+## RTP Transport Adaptation
 
 This `protocol` is used for `urn:x-nmos:transport:rtp`, `urn:x-nmos:transport:rtp.mcast`, and `urn:x-nmos:transport:rtp.ucast`.
 
