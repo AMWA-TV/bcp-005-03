@@ -30,7 +30,7 @@ The term 'ECDH' refers to the Elliptic Curve Diffie-Hellman key agreement algori
 
 ## Compliance
 
-A Node MUST comply with all strict requirements introduced by `shall` clauses in [TR-10-13][]. Some of these requirements are restated in this specification to emphasize their importance, without altering their original normative scope. This specification MAY define additional values for the `protocol`, `mode`, and `ecdh_curve` parameters beyond those specified in [TR-10-13][], [TR-10-14][], or other VSF/IPMX technical recommendations. The inclusion of these additional values MUST NOT be interpreted as violating any `shall` clause in the referenced technical recommendations.
+A Node MUST comply with all strict requirements introduced by `shall` clauses in [TR-10-13][]. Some of these requirements are restated in this specification to emphasize their importance, without altering their original normative scope. This specification can define additional values for the `protocol`, `mode`, and `ecdh_curve` parameters beyond those specified in [TR-10-13][], [TR-10-14][], or other VSF/IPMX technical recommendations. The inclusion of these additional values does not violate any `shall` clause in the referenced technical recommendations.
 
 A Node MUST comply with the non-strict requirements introduced by `should` and `may` clauses in [TR-10-13][], where such requirements are explicitly elevated to strict requirements through a `MUST` clause in this specification.
 
@@ -62,15 +62,15 @@ A PSK has a value and a size (128, 256, or 512 bits). Each PSK is identified by 
 
 Each Sender using privacy encryption MUST be associated with a provisioned PSK via its `key_id`. Each Receiver using privacy encryption MUST be associated with a set of provisioned PSKs, identified by their `key_id` values. 
 
-A Sender MUST populate the `ext_privacy_key_id` extended transport parameter in the IS-05 `active`, `staged` and `constraints` endpoints with the `key_id` of its associated PSK. A Sender that is not associated with a PSK MUST NOT expose the IS-05 extended transport parameters of the Privacy Encryption Protocol.
+A Sender MUST populate the `ext_privacy_key_id` extended transport parameter in the IS-05 `active`, `staged` and `constraints` endpoints with the `key_id` of its associated PSK. A Sender MUST only expose the IS-05 extended transport parameters of the Privacy Encryption Protocol when it is associated with a provisioned PSK.
 
-A Receiver MUST populate the `ext_privacy_key_id` extended transport parameter in the IS-05 `constraints` endpoint with all acceptable `key_id` values. At activation time, a Receiver using privacy encryption becomes associated with one of the provisioned PSKs through the `ext_privacy_key_id` extended transport parameter. A Receiver MUST fail activation if the provided `key_id` is not provisioned in the device or is not listed in the Receiver's `ext_privacy_key_id` transport parameter constraints. A Receiver that is not associated with any PSK MUST NOT expose the IS-05 extended transport parameters of the Privacy Encryption Protocol.
+A Receiver MUST populate the `ext_privacy_key_id` extended transport parameter in the IS-05 `constraints` endpoint with all acceptable `key_id` values. At activation time, a Receiver using privacy encryption becomes associated with one of the provisioned PSKs through the `ext_privacy_key_id` extended transport parameter. A Receiver MUST fail activation if the provided `key_id` is not provisioned in the device or is not listed in the Receiver's `ext_privacy_key_id` transport parameter constraints. A Receiver MUST only expose the IS-05 extended transport parameters of the Privacy Encryption Protocol when it is associated with at least one provisioned PSK.
 
 ## Enabling/Disabling Privacy Encryption
 
 As indicated in [TR-10-13][], the enabling and disabling of privacy encryption in devices supporting the PEP technology is under the control of the device manufacturer.
 
-Devices MUST NOT allow changes to the state (enabled or disabled) of privacy encryption through the IS-05 NMOS API
+Devices MUST NOT allow changes to the state (enabled or disabled) of privacy encryption through the IS-05 and IS-11 NMOS APIs.
 
 Refer to the "SDP Transport File Parameters / NMOS Transport Parameters" section of [TR-10-13][] for further details on how privacy encryption is enabled or disabled.
 
@@ -82,7 +82,7 @@ The enabling and disabling of privacy encryption is intentionally under manufact
 
 ## Parameters
 
-The [TR-10-13][] technical recommendation defines the following parameters, which are accessible both as IS-05 extended transport parameters (including constraints), and as `privacy` attribute parameters in SDP transport files.
+The [TR-10-13][] technical recommendation defines the following parameters, which are accessible as IS-05 extended transport parameters (including constraints), and as `privacy` attribute parameters in SDP transport files, with the exception of ECDH parameters which are not present in the SDP file.
 
 For transport protocols using an SDP transport file: a Sender MUST communicate privacy encryption parameters in the SDP transport file associated with a privacy-encrypted stream, and MUST also communicate these parameters using the extended NMOS transport parameters.
 
@@ -175,6 +175,8 @@ A Sender configured with a 256-bit or 512-bit PSK MUST support only modes based 
 
 > Note: If the constraints on the IS-05 `ext_privacy_mode` transport parameter of a Sender only allow modes based on AES-128, it indicates that only 128-bit PSKs are used.
 
+> Note: The "AES-128-CTR" `mode` and a PSK of 128-bit are supported by all devices implementing the "RTP" or "RTP_KV" protocols. If a Sender is associated with a 256-bit PSK, then the "AES-128-CTR" `mode` will not be available for that Sender unless the associated PSK size becomes 128 bit.
+
 A Receiver configured with a 256-bit or 512-bit PSK MUST support modes based on AES-256. A Receiver configured with a 128-bit PSK MUST support modes based on AES-128. A Receiver MAY support both AES-128 and AES-256-based modes simultaneously. A Receiver MUST fail activation if a `key_id` associated with a 256-bit or 512-bit PSK is used with a `mode` that is not based on AES-256.
 
 > Note: If the constraints on the IS-05 `ext_privacy_mode` transport parameter of a Receiver only allow modes based on AES-128, it indicates that only 128-bit PSKs are allowed.
@@ -194,7 +196,12 @@ The "AES-128-CTR_CMAC-64-AAD" `mode` MUST be supported by all devices implementi
 
 The ECDH mode allows **Perfect Forward Secrecy**.
 
-The `ecdh_curve` parameter MUST be one of the following: "secp256r1", "secp521r1", "25519", "448", or "NULL".
+The `ecdh_curve` parameter MUST be one of the following:
+- "secp256r1"
+- "secp521r1"
+- "25519"
+- "448"
+- "NULL"
 
 If the ECDH modes are not supported by a Sender/Receiver and the `ext_privacy_*` transport parameters are present, the "NULL" curve MUST be used for the `ext_privacy_ecdh_curve` transport parameter in the `active` and `staged` endpoints to indicate that ECDH modes are not available. The associated constraints MUST allow only the "NULL" curve when the `ext_privacy_ecdh_curve` parameter is "NULL".
 
@@ -217,19 +224,19 @@ If the Sender's `privacy` attribute is `true`, the `ext_privacy_protocol` and `e
 
 A Sender MAY provide a `urn:x-nmos:cap:transport:privacy` capability to indicate that privacy encryption and the PEP protocol are supported. A Sender MAY support either the `true` or `false` value. 
 
-> Note: A Sender is not allowed by [TR-10-13][] to support both values. An NMOS API is not allowed to change the enabling or disabling of privacy encryption.
+> Note: A Sender is not allowed by [TR-10-13][] to support both values. The [TR-10-13][] specification explicitly state that "Only a vendor-specific configuration mechanism shall be able to configure a Sender/Receiver to disable privacy encryption.".
 
-A Controller MAY use a Sender's `urn:x-nmos:cap:transport:privacy` capability and IS-05 `ext_privacy_*` transport parameters constraints to verify Receivers compatibility with a Sender. If necessary, it MAY constrain the Sender (within its declared constraints) to make it compliant with the Receivers. 
+A Controller MAY use a Sender's `urn:x-nmos:cap:transport:privacy` capability and IS-05 `ext_privacy_*` transport parameters constraints to verify Receivers compatibility with a Sender. If necessary, it MAY  adjust transport parameters of the Sender (within its declared constraints) to make it compatible with the Receivers. 
 
-A Sender MUST NOT list the `urn:x-nmos:cap:transport:privacy` capability in its IS-11 `constraints/supported` endpoint. As such, a Controller cannot constrain the Sender's `urn:x-nmos:cap:transport:privacy` capability, as privacy encryption is a protection mechanism under the control of the Sender only. However, a Controller MAY select values for the Sender's IS-05 `ext_privacy_*` transport parameters within the limits of their associated constraints.
+A Sender MUST NOT list the `urn:x-nmos:cap:transport:privacy` capability in its IS-11 `constraints/supported` endpoint. As such, a Controller cannot constrain the Sender's `urn:x-nmos:cap:transport:privacy` capability, as privacy encryption is a protection mechanism under the control of the Sender only. 
 
 > Note: A Sender is configured to produce either privacy-encrypted streams or non-encrypted streams. The `urn:x-nmos:cap:transport:privacy` capability indicates the current configuration of the Sender.
 
 ### SDP Transport File
 
-The `privacy` attribute of [TR-10-13][] is not yet registered with IANA. If it were, the definition would indicate "Usage Level: session, media", meaning that a session-level `privacy` attribute serves as the default for any media-level `privacy` attribute that is not explicitly specified. An SDP transport file MAY provide the `privacy` information at either the session-level or the media-level.
+The `privacy` attribute of [TR-10-13][] is used in an SDP transport file to indicate that privacy encryption and the PEP protocol are used.
 
-The PEP specification uses the expression "a privacy session attribute or a number of privacy media attributes" to clearly indicate "Usage Level: session, media".
+An example of an SDP transport file is provided in [Examples](./examples).
 
 ### Consistency
 
@@ -243,13 +250,11 @@ The `urn:x-nmos:cap:transport:privacy` capability MUST NOT allow both `true` and
 
 A Receiver implementing privacy encryption and the PEP protocol MUST provide IS-05 `ext_privacy_*` extended transport parameters and associated constraints that specify the extent of support for the features defined in [TR-10-13][].
 
-A Receiver MUST provide a `urn:x-nmos:cap:transport:privacy` capability to indicate support for Senders that use privacy encryption and the PEP protocol. A capability value of `true` indicates that privacy encryption and the PEP protocol are supported, while a value of `false` indicates that they are not supported. A Receiver MAY support either the `true` or `false` value.
+A Receiver MUST provide a `urn:x-nmos:cap:transport:privacy` capability to indicate its support for Senders that use privacy encryption and the PEP protocol. If this capability has a singular value of `true`, that indicates support for privacy encryption and the PEP protocol. If this capability has a singular value of `false`, that indicates that they are not supported. A Receiver MAY support either the `true` or `false` value but MUST NOT support both as described in [TR-10-13][].
 
 > Note: A Receiver is not allowed by [TR-10-13][] to support both values. An NMOS API is not allowed to change the state (enabled or disabled) of privacy encryption.
 
 ## Controller
-
-A Controller MUST verify Receivers' compliance with an active Sender using privacy encryption and the PEP protocol. 
 
 A Controller establishes that an active Sender is using privacy encryption and the PEP protocol by checking the Sender's `privacy` attribute, or by checking the Sender’s SDP transport file for a `privacy` attribute, or by checking the Sender's `urn:x-nmos:cap:transport:privacy` capability, or by verifying the Sender's IS-05  `ext_privacy_*` extended transport parameters at the `active` endpoint.
 
@@ -261,13 +266,11 @@ Finally, the presence of the Sender's IS-05 `ext_privacy_protocol` and `ext_priv
 
 When considering an inactive Sender, a Controller MUST NOT rely on the content of the SDP transport file as it MAY NOT be available or up to date until the Sender becomes active.
 
-Only Receivers that support privacy encryption and the PEP protocol MAY consume such streams.
+Only Receivers that support privacy encryption and the PEP protocol can consume such streams.
 
-A Controller is responsible for assessing Receivers compatibility with an active Sender with respect to privacy encryption. This process is performed at both the IS-04 and IS-05 levels. 
+A Controller is responsible for assessing Receiver compatibility with an active Sender with respect to privacy encryption. This process is performed at both the IS-04 and IS-05 levels. 
 
-A Controller detecting non-compliance with an active Sender at the IS-04 level using the Sender's `privacy` attribute or `urn:x-nmos:cap:transport:privacy` capability, and the Receiver's `urn:x-nmos:cap:transport:privacy` capability MUST prevent activation and SHOULD notify the User.
-
-A Controller detecting compliance with an active Sender at the IS-04 level using the Sender's `privacy` attribute or `urn:x-nmos:cap:transport:privacy` capability, and the Receiver's `urn:x-nmos:cap:transport:privacy` capability MUST perform a final compatibility check using the Sender's and Receivers' IS-05 `ext_privacy_*` transport parameters and associated constraints.
+A Controller verifies compliance at the IS-04 level using the active Sender’s `privacy` attribute or `urn:x-nmos:cap:transport:privacy` capability, and the Receiver’s `urn:x-nmos:cap:transport:privacy` capability. When detecting non-compliance the controller MUST prevent activation and SHOULD notify the User. When detecting compliance the controller MUST perform a further check at the IS-05 level using the Sender’s and Receivers’ IS-05 `ext_privacy_*` transport parameters and associated constraints.
 
 A Controller MUST ensure that the `protocol` and `mode` parameters are identical between the Sender and all subscribing or connecting Receivers. If an ECDH `mode` is used, the Controller MUST also ensure that the `ecdh_curve` parameter is identical between the Sender and the subscribing or connecting Receiver. A Controller MAY constrain the Sender with `protocol`, `mode` and `curve` privacy encryption parameters compatible with the Receivers. A Controller MUST forward the Sender's `iv`, `key_generator`, `key_version`, and `key_id` parameters to all subscribing or connecting Receivers. If an ECDH `mode` is used, the Controller MUST exchange the ECDH `public_key` parameters between the peers.
 
@@ -279,9 +282,9 @@ A Controller MAY perform the compatibility checks limited to the IS-05 level for
 
 ### IS-05 Sender Activation
 
-The effective values of the Sender's read-only IS-05 `ext_privacy_*` transport parameters `iv`, `key_generator`, `key_version`, and `key_id`, as well as the associated `privacy` attribute parameters in the Sender's SDP transport file, are not fixed until activation, when `master_enable` becomes `true` at the `active` endpoint. A Controller MUST NOT assume final values for a Sender's IS-05 `ext_privacy_*` transport parameters or the Sender's SDP transport file `privacy` attribute parameters prior to activation.
+The effective values of the Sender's read-only IS-05 `ext_privacy_*` transport parameters `iv`, `key_generator`, `key_version`, and `key_id`, as well as the associated `privacy` attribute parameters in the Sender's SDP transport file, are not fixed until activation, when `master_enable` becomes `true` at the `active` endpoint. A Controller MUST use the values for a Sender’s IS-05 `ext_privacy_*` transport parameters or the Sender’s SDP transport file `privacy` attribute parameters after activating the Sender since they could change prior to this.
 
-The values of the `privacy` attribute parameters in the SDP transport file of an active Sender MUST match the values of the active `ext_privacy_*` transport parameters of that active Sender.
+An active sender MUST match the values of the `privacy` attribute parameters in the SDP transport file to the values of the active `ext_privacy_*` transport parameters.
 
 The [TR-10-13][] expression "becomes inactive", in the context of the ECDH private/public key pair, MUST be interpreted as an activation with `master_enable` set to `false`, resulting in `master_enable` remaining or becoming `false` at the `active` endpoint of a Sender.
 
@@ -289,7 +292,7 @@ The [TR-10-13][] expression "becomes inactive", in the context of the ECDH priva
 
 During an activation (`master_enable` becomes true) or re-activation (`master_enable` remains true), a Sender MAY change all privacy encryption parameters, but the Sender's ECDH private/public key pair MUST remain unchanged.
 
-At both activation (`master_enable` becomes true) and re-activation (`master_enable` remains true), a Sender MUST update the `ext_privacy_*` transport parameters at the `staged`, `active`, and `constraints` endpoints, and update the `privacy` attribute parameters of the SDP transport file at the `transportfile` endpoint, prior to completing the activation.
+At both activation (`master_enable` becomes true) and re-activation (`master_enable` remains true), a Sender MUST update the `ext_privacy_*` transport parameters at the `staged`, `active`, and `constraints` endpoints, and MUST update the `privacy` attribute parameters of the SDP transport file at the `transportfile` endpoint, prior to completing the activation.
 
 #### With ECDH
 
@@ -297,7 +300,7 @@ The ECDH mode is only supported in peer-to-peer mode, where one Receiver connect
 
 De-activation of a Sender (with `master_enable` set to `false`), MUST regenerate the value of the `ext_privacy_ecdh_sender_public_key` transport parameter, provided that ECDH modes are supported.
 
-At de-activation (`master_enable` becomes or remains `false`), a Sender MUST update the `ext_privacy_ecdh_sender_public_key` transport parameter at the `staged`, `active`, and `constraints` endpoints prior to completing the activation. To change the value of the Sender's `ext_privacy_ecdh_curve` transport parameter, a Controller MUST perform an activation with `master_enable` set to `false` to trigger regeneration of a new  `ext_privacy_ecdh_sender_public_key` transport parameter value.
+At de-activation (`master_enable` becomes or remains `false`), a Sender MUST update the `ext_privacy_ecdh_sender_public_key` transport parameter at the `staged`, `active`, and `constraints` endpoints prior to completing the de-activation. A Controller MUST perform an activation with `master_enable` set to `false` (triggering the regeneration of a new `ext_privacy_ecdh_sender_public_key` transport parameter value), in order to change the value of the Sender’s `ext_privacy_ecdh_curve` transport parameter.
 
 A Controller MUST provide the value of the peer Receiver's `ext_privacy_ecdh_receiver_public_key` transport parameter to the Sender during activation, when `master_enable` is set to `true`.
 
@@ -315,7 +318,7 @@ The [TR-10-13][] expression "becomes inactive", in the context of the ECDH priva
 
 During an activation (`master_enable` becomes `true`) or re-activation (`master_enable` remains true), a Receiver MAY change all privacy encryption parameters, but the Receiver's ECDH private/public key pair MUST remain unchanged.
 
-At both activation (`master_enable` becomes `true`) and re-activation (`master_enable` remains `true`), a Receiver MUST update the `ext_privacy_*` transport parameters, with the exception of `ext_privacy_ecdh_sender_public_key`, at the `staged`, `active`, and `constraints` endpoints prior to completing the activation.
+At both activation (`master_enable` becomes `true`) and re-activation (`master_enable` remains `true`), a Receiver MUST update the `ext_privacy_*` transport parameters at the `staged`, `active`, and `constraints` endpoints prior to completing the activation.
 
 #### With ECDH
 
@@ -323,9 +326,9 @@ The ECDH mode is supported only in peer-to-peer mode, where one Receiver connect
 
 De-activation of a Receiver (with `master_enable` set to `false`) MUST regenerate the value of the `ext_privacy_ecdh_receiver_public_key` transport parameter, provided that ECDH modes are supported. 
 
-At de-activation (`master_enable` becomes or remains `false`), a Receiver MUST update the `ext_privacy_ecdh_receiver_public_key` transport parameter at the `staged`, `active`, and `constraints` endpoints prior to completing the activation. To change the value of the Receiver's `ext_privacy_ecdh_curve` transport parameter, a Controller MUST perform an activation with `master_enable` set to `false` to trigger regeneration of a new `ext_privacy_ecdh_receiver_public_key` transport parameter value.
+At de-activation (`master_enable` becomes or remains `false`), a Receiver MUST update the `ext_privacy_ecdh_receiver_public_key` transport parameter at the `staged`, `active`, and `constraints` endpoints prior to completing the de-activation. A Controller MUST perform an activation with `master_enable` set to `false` (triggering the regeneration of a new `ext_privacy_ecdh_receiver_public_key` transport parameter value), in order to change the value of the Receiver’s `ext_privacy_ecdh_curve` transport parameter.
 
-A Controller MUST read the value of the Receiver's `ext_privacy_ecdh_receiver_public_key` transport parameter prior to activation, when `master_enable` is `false`. Once a Controller reads the `ext_privacy_ecdh_receiver_public_key` transport parameter of a Receiver and provides its value to a Sender, it MUST NOT perform any subsequent activation of that Receiver with `master_enable` set to `false`, as this would regenerate the value of `ext_privacy_ecdh_receiver_public_key`.
+A Controller MUST read the value of the Receiver's `ext_privacy_ecdh_receiver_public_key` transport parameter prior to activation, when `master_enable` is `false`. Once a Controller reads the `ext_privacy_ecdh_receiver_public_key` transport parameter of a Receiver and provides its value to a Sender, it MUST NOT perform any subsequent activation of that Receiver with `master_enable` set to `false`, if the current ECDH session with the Sender needs to be maintained, as this would regenerate the value of `ext_privacy_ecdh_receiver_public_key`.
 
 A Controller MUST provide the value of the peer Sender's `ext_privacy_ecdh_sender_public_key` transport parameter to the Receiver during activation, when `master_enable` is set to `true`.
 
@@ -348,13 +351,13 @@ The following sequence diagram illustrates a Controller evaluating the privacy e
 
 ## RTP Transport Adaptation
 
-This `protocol` is used for `urn:x-nmos:transport:rtp`, `urn:x-nmos:transport:rtp.mcast`, and `urn:x-nmos:transport:rtp.ucast`.
+The RTP Transport Adaptation is used for `urn:x-nmos:transport:rtp`, `urn:x-nmos:transport:rtp.mcast`, and `urn:x-nmos:transport:rtp.ucast`.
 
 See the [TR-10-13][] technical recommendation for further details.
 
 ## USB-IP Transport Adaptation
 
-This `protocol` is used for `urn:x-nmos:transport:usb`.
+The USB-IP Transport Adaptation is used for `urn:x-nmos:transport:usb`.
 
 See the [TR-10-14][] technical recommendation for the details.
 
