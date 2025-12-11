@@ -224,7 +224,7 @@ If the Sender's `privacy` attribute is `true`, the `ext_privacy_protocol` and `e
 
 A Sender MAY provide a `urn:x-nmos:cap:transport:privacy` capability to indicate that privacy encryption and the PEP protocol are supported. A Sender MAY support either the `true` or `false` value. 
 
-> Note: A Sender is not allowed by [TR-10-13][] to support both values. The [TR-10-13][] specification explicitly state that "Only a vendor-specific configuration mechanism shall be able to configure a Sender/Receiver to disable privacy encryption.".
+> Note: A Sender is not allowed by [TR-10-13][] to support both values. The [TR-10-13][] specification explicitly states that "Only a vendor-specific configuration mechanism shall be able to configure a Sender/Receiver to disable privacy encryption.".
 
 A Controller MAY use a Sender's `urn:x-nmos:cap:transport:privacy` capability and IS-05 `ext_privacy_*` transport parameters constraints to verify Receivers compatibility with a Sender. If necessary, it MAY  adjust transport parameters of the Sender (within its declared constraints) to make it compatible with the Receivers. 
 
