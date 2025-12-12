@@ -270,11 +270,11 @@ Only Receivers that support privacy encryption and the PEP protocol can consume 
 
 A Controller is responsible for assessing Receiver compatibility with an active Sender with respect to privacy encryption. This process is performed at both the IS-04 and IS-05 levels. 
 
-A Controller verifies compliance at the IS-04 level using the active Sender’s `privacy` attribute or `urn:x-nmos:cap:transport:privacy` capability, and the Receiver’s `urn:x-nmos:cap:transport:privacy` capability. When detecting non-compliance the controller MUST prevent activation and SHOULD notify the User. When detecting compliance the controller MUST perform a further check at the IS-05 level using the Sender’s and Receivers’ IS-05 `ext_privacy_*` transport parameters and associated constraints.
+A Controller verifies compliance at the IS-04 level using the active Sender’s `privacy` attribute or `urn:x-nmos:cap:transport:privacy` capability, and the Receiver’s `urn:x-nmos:cap:transport:privacy` capability. When detecting non-compliance the controller SHOULD notify the User and MUST prevent activation unless the User overrides this behavior. When detecting compliance the controller MUST perform a further check at the IS-05 level using the Sender’s and Receivers’ IS-05 `ext_privacy_*` transport parameters and associated constraints.
 
 A Controller MUST ensure that the `protocol` and `mode` parameters are identical between the Sender and all subscribing or connecting Receivers. If an ECDH `mode` is used, the Controller MUST also ensure that the `ecdh_curve` parameter is identical between the Sender and the subscribing or connecting Receiver. A Controller MAY constrain the Sender with `protocol`, `mode` and `curve` privacy encryption parameters compatible with the Receivers. A Controller MUST forward the Sender's `iv`, `key_generator`, `key_version`, and `key_id` parameters to all subscribing or connecting Receivers. If an ECDH `mode` is used, the Controller MUST exchange the ECDH `public_key` parameters between the peers.
 
-If a mismatch is detected in the `protocol`, `mode`, or `ecdh_curve` parameters, the Controller MUST prevent activation and SHOULD notify the User.
+If a mismatch is detected in the `protocol`, `mode`, or `ecdh_curve` parameters, the Controller SHOULD notify the User and MUST prevent activation unless the User overrides this behavior.
 
 > Note: IS-11 operates at the IS-04 capabilities/constraints level and cannot be used to constrain privacy encryption, which is managed using IS-05.
 
@@ -282,7 +282,7 @@ A Controller MAY perform the compatibility checks limited to the IS-05 level for
 
 ### IS-05 Sender Activation
 
-The effective values of the Sender's read-only IS-05 `ext_privacy_*` transport parameters `iv`, `key_generator`, `key_version`, and `key_id`, as well as the associated `privacy` attribute parameters in the Sender's SDP transport file, are not fixed until activation, when `master_enable` becomes `true` at the `active` endpoint. A Controller MUST use the values for a Sender’s IS-05 `ext_privacy_*` transport parameters or the Sender’s SDP transport file `privacy` attribute parameters after activating the Sender since they could change prior to this.
+The effective values of the Sender's read-only IS-05 `ext_privacy_*` transport parameters `iv`, `key_generator`, `key_version`, and `key_id`, as well as the associated `privacy` attribute parameters in the Sender's SDP transport file, are not fixed until activation, when `master_enable` becomes `true` at the `active` endpoint. The Sender’s IS-05 `ext_privacy_*` transport parameters and the Sender’s SDP transport file `privacy` attribute parameters become effective after activating the Sender. A Controller MUST ensure the Sender has been activated in order to get the effective parameter values prior to using them.
 
 An active sender MUST match the values of the `privacy` attribute parameters in the SDP transport file to the values of the active `ext_privacy_*` transport parameters.
 
