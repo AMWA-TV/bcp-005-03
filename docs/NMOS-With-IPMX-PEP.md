@@ -282,7 +282,7 @@ A Controller MAY perform the compatibility checks limited to the IS-05 level for
 
 ### IS-05 Sender Activation
 
-The effective values of the Sender's read-only IS-05 `ext_privacy_*` transport parameters `iv`, `key_generator`, `key_version`, and `key_id`, as well as the associated `privacy` attribute parameters in the Sender's SDP transport file, are not fixed until activation, when `master_enable` becomes `true` at the `active` endpoint. The Sender’s IS-05 `ext_privacy_*` transport parameters and the Sender’s SDP transport file `privacy` attribute parameters become effective after activating the Sender. A Controller MUST ensure the Sender has been activated in order to get the effective parameter values prior to using them.
+The effective values of the Sender's read-only IS-05 `ext_privacy_*` transport parameters `iv`, `key_generator`, `key_version`, and `key_id`, as well as the associated `privacy` attribute parameters in the Sender's SDP transport file, are not fixed until activation, when `master_enable` becomes `true` at the `active` endpoint. A Controller MUST ensure the Sender has been activated in order to get the effective parameter values prior to using them.
 
 An active sender MUST match the values of the `privacy` attribute parameters in the SDP transport file to the values of the active `ext_privacy_*` transport parameters.
 
