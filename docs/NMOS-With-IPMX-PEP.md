@@ -236,7 +236,7 @@ A Sender MUST NOT list the `urn:x-nmos:cap:transport:privacy` capability in its 
 
 The `privacy` attribute of [TR-10-13][] is used in an SDP transport file to indicate that privacy encryption and the PEP protocol are used.
 
-An example of an SDP transport file is provided in [Examples](./examples).
+An example of an SDP transport file is provided in [Examples](../examples/).
 
 ### Consistency
 
