@@ -1,4 +1,4 @@
-# \[Work In Progress\] AMWA BCP-005-03: NMOS Support for IPMX/PEP
+# AMWA BCP-005-03: NMOS Support for IPMX/PEP
 
 [![Lint Status](https://github.com/AMWA-TV/bcp-005-03/workflows/Lint/badge.svg)](https://github.com/AMWA-TV/bcp-005-03/actions?query=workflow%3ALint)
 [![Render Status](https://github.com/AMWA-TV/bcp-005-03/workflows/Render/badge.svg)](https://github.com/AMWA-TV/bcp-005-03/actions?query=workflow%3ARender)

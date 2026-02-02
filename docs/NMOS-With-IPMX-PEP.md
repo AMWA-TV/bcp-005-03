@@ -1,4 +1,4 @@
-# AMWA BCP-005-03: NMOS With IPMX Privacy Encryption
+# AMWA BCP-005-03: NMOS Support for IPMX/PEP
 {:.no_toc}
 {:toc}
 

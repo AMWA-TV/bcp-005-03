@@ -1,10 +1,11 @@
 amwa_id: BCP-005-03
 url: https://specs.amwa.tv/bcp-005-03
 name: NMOS Support for IPMX/PEP
-status: Work In Progress
+status: AMWA Specification
 repo_name: bcp-005-03
 alt_repo_name: bcp-ipmx-pep
 repo_url: https://github.com/AMWA-TV/bcp-005-03
 releases:
-default_branch: v1.0-dev
+  - v1.0.0
+default_branch: v1.0.x
 show_in_index: true
