@@ -1,0 +1,64 @@
+[
+    {
+        "destination_port": {},
+        "ext_privacy_ecdh_curve": {
+            "enum": [
+                "25519",
+                "secp256r1"
+            ]
+        },
+        "ext_privacy_ecdh_receiver_public_key": {
+            "description": "read-only",
+            "enum": [
+                "59183bbe19eb73c3f63302d2ba9cc8f0df58966a9ea14662ec11c6ab4806de61"
+            ]
+        },
+        "ext_privacy_ecdh_sender_public_key": {},
+        "ext_privacy_iv": {},
+        "ext_privacy_key_generator": {},
+        "ext_privacy_key_id": {
+            "enum": [
+                "0001020304050607",
+                "0000000000000000"
+            ]
+        },
+        "ext_privacy_key_version": {},
+        "ext_privacy_mode": {
+            "enum": [
+                "AES-128-CTR",
+                "ECDH_AES-128-CTR",
+                "AES-256-CTR",
+                "ECDH_AES-256-CTR"
+            ]
+        },
+        "ext_privacy_protocol": {
+            "enum": [
+                "RTP",
+                "RTP_KV"
+            ]
+        },
+        "interface_ip": {
+            "enum": [
+                "192.168.0.1"
+            ]
+        },
+        "multicast_ip": {},
+        "rtcp_destination_ip": {
+            "enum": [
+                "auto"
+            ]
+        },
+        "rtcp_destination_port": {},
+        "rtcp_enabled": {
+            "enum": [
+                true
+            ]
+        },
+        "rtp_enabled": {
+            "enum": [
+                true
+            ]
+        },
+        "source_ip": {}
+    }
+]

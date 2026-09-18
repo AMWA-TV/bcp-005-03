@@ -1,0 +1,34 @@
+{
+    "sender_id": "00000000-0200-4000-ab00-4d5458005010",
+    "master_enable": true,
+    "activation": {
+        "mode": "activate_immediate",
+        "requested_time": null,
+        "activation_time": "1754572129:705523404"
+    },
+    "transport_file": {
+        "data": "v=0\r\no=- 1754572755 1754572755 IN IP4 127.0.0.1\r\ns=Device [MTX05010] - Net Stream 0 Video 0\r\nt=0 0\r\nm=video 27500 RTP/AVP 96\r\nc=IN IP4 239.0.0.1/128\r\na=rtpmap:96 raw/90000\r\na=fmtp:96 width=1920; height=1080; depth=10; exactframerate=60; sampling=YCbCr-4:2:2; colorimetry=BT709; SSN=ST2110-20:2017; TP=2110TPW; PM=2110GPM; MAXUDP=1460; TCS=SDR; RANGE=NARROW; PAR=1:1; measuredpixclk=124416000; vtotal=1080; htotal=1920; IPMX\r\na=ts-refclk:ptp=IEEE1588-2008:00-00-00-00-00-00-00-00:00\r\na=mediaclk:sender\r\na=source-filter: incl IN IP4 239.0.0.1 127.0.0.1\r\na=extmap:1/sendonly urn:ietf:params:rtp-hdrext:HDCP-Full-IV-Counter-metadata\r\na=extmap:2/sendonly urn:ietf:params:rtp-hdrext:HDCP-Short-IV-Counter-metadata\r\na=hkep:5010 IN IP4 127.0.0.1 00000000-0000-4000-ab00-4d5458005010 01-00-00-00-00\r\na=privacy:protocol=RTP; mode=AES-128-CTR; iv=7015359753a652a7; key_generator=fb1b6b3edb235db27551821f253b1c53; key_version=90bb579f; key_id=0001020304050607\r\na=rtcp:27501\r\n",
+        "type": "application/sdp"
+    },
+    "transport_params": [
+        {
+            "source_ip": "192.168.0.1",
+            "multicast_ip": "239.0.0.1",
+            "interface_ip": "192.168.0.1",
+            "destination_port": 27500,
+            "rtcp_enabled": true,
+            "rtcp_destination_ip": "239.0.0.1",
+            "rtcp_destination_port": 27501,
+            "rtp_enabled": true,
+            "ext_privacy_protocol": "RTP",
+            "ext_privacy_mode": "AES-128-CTR",
+            "ext_privacy_iv": "7015359753a652a7",
+            "ext_privacy_key_generator": "fb1b6b3edb235db27551821f253b1c53",
+            "ext_privacy_key_id": "0001020304050607",
+            "ext_privacy_key_version": "90bb579f",
+            "ext_privacy_ecdh_sender_public_key": "00",
+            "ext_privacy_ecdh_receiver_public_key": "59183bbe19eb73c3f63302d2ba9cc8f0df58966a9ea14662ec11c6ab4806de61",
+            "ext_privacy_ecdh_curve": "25519"
+        }
+    ]
+}
