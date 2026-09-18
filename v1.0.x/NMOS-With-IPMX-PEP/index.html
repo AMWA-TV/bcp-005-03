@@ -1,0 +1,1866 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://specs.amwa.tv/new/bcp-005-03/v1.0.x/NMOS-With-IPMX-PEP/">
+      
+      
+        <link rel="prev" href="./..">
+      
+      
+        <link rel="next" href="../examples/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.62">
+    
+    
+      
+        <title>NMOS With IPMX/PEP - AMWA BCP-005-03: NMOS Support for IPMX/PEP</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.ce62732f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../stylesheets/amwa-branding.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#amwa-bcp-005-03-nmos-support-for-ipmxpep" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="AMWA BCP-005-03: NMOS Support for IPMX&#x2f;PEP" class="md-header__button md-logo" aria-label="AMWA BCP-005-03: NMOS Support for IPMX/PEP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AMWA BCP-005-03: NMOS Support for IPMX/PEP
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              NMOS With IPMX/PEP
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/AMWA-TV/bcp-005-03" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AMWA-TV/bcp-005-03
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="AMWA BCP-005-03: NMOS Support for IPMX&#x2f;PEP" class="md-nav__button md-logo" aria-label="AMWA BCP-005-03: NMOS Support for IPMX/PEP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    AMWA BCP-005-03: NMOS Support for IPMX/PEP
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AMWA-TV/bcp-005-03" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AMWA-TV/bcp-005-03
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  AMWA BCP-005-03: NMOS Support for IPMX/PEP
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Content
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Content
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  NMOS With IPMX/PEP
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  NMOS With IPMX/PEP
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Introduction
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-of-normative-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Use of Normative Language
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definitions
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Compliance
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-provisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        General Provisions
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#psk-provisioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        PSK Provisioning
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PSK Provisioning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Identification
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#association" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Association
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enablingdisabling-privacy-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Enabling/Disabling Privacy Encryption
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Parameters
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#is-05-transport-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IS-05 Transport Parameters
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is-05-transport-parameters-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IS-05 Transport Parameters Constraints
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Protocol
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Mode
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-protocols-rtp-and-rtp_kv" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        For protocols "RTP" and "RTP_KV"
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-protocol-usb-and-usb_kv" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        For protocol "USB" and "USB_KV"
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elliptic-curve-diffie-hellman-ecdh" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Elliptic Curve Diffie-Hellman (ECDH)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#is-04-is-05-is-11-senders" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IS-04, IS-05, IS-11 Senders
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IS-04, IS-05, IS-11 Senders">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sdp-transport-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SDP Transport File
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Consistency
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#is-04-is-05-is-11-receivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IS-04, IS-05, IS-11 Receivers
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Controller
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Controller">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#is-05-sender-activation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IS-05 Sender Activation
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IS-05 Sender Activation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with-ecdh" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        With ECDH
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is-05-receiver-activation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IS-05 Receiver activation
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IS-05 Receiver activation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with-ecdh_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        With ECDH
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sequence-diagrams-informative" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sequence Diagrams (Informative)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rtp-transport-adaptation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        RTP Transport Adaptation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usb-ip-transport-adaptation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        USB-IP Transport Adaptation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Examples
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Examples
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Examples
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/receiver-ecdh-transport-parameters-active/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  receiver-ecdh-transport-parameters-active.json
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/receiver-ecdh-transport-parameters-constraints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  receiver-ecdh-transport-parameters-constraints.json
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/receiver-transport-parameters-active/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  receiver-transport-parameters-active.json
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/receiver-transport-parameters-constraints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  receiver-transport-parameters-constraints.json
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/receiver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  receiver.json
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/sender-ecdh-transport-parameters-active/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  sender-ecdh-transport-parameters-active.json
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/sender-ecdh-transport-parameters-constraints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  sender-ecdh-transport-parameters-constraints.json
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/sender-transport-parameters-active/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  sender-transport-parameters-active.json
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/sender-transport-parameters-constraints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  sender-transport-parameters-constraints.json
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/sender/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  sender.json
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Introduction
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-of-normative-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Use of Normative Language
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definitions
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Compliance
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-provisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        General Provisions
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#psk-provisioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        PSK Provisioning
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PSK Provisioning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Identification
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#association" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Association
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enablingdisabling-privacy-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Enabling/Disabling Privacy Encryption
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Parameters
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#is-05-transport-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IS-05 Transport Parameters
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is-05-transport-parameters-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IS-05 Transport Parameters Constraints
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Protocol
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Mode
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-protocols-rtp-and-rtp_kv" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        For protocols "RTP" and "RTP_KV"
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-protocol-usb-and-usb_kv" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        For protocol "USB" and "USB_KV"
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elliptic-curve-diffie-hellman-ecdh" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Elliptic Curve Diffie-Hellman (ECDH)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#is-04-is-05-is-11-senders" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IS-04, IS-05, IS-11 Senders
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IS-04, IS-05, IS-11 Senders">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sdp-transport-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SDP Transport File
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Consistency
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#is-04-is-05-is-11-receivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IS-04, IS-05, IS-11 Receivers
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Controller
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Controller">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#is-05-sender-activation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IS-05 Sender Activation
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IS-05 Sender Activation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with-ecdh" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        With ECDH
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is-05-receiver-activation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IS-05 Receiver activation
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IS-05 Receiver activation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with-ecdh_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        With ECDH
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sequence-diagrams-informative" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sequence Diagrams (Informative)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rtp-transport-adaptation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        RTP Transport Adaptation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usb-ip-transport-adaptation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        USB-IP Transport Adaptation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="amwa-bcp-005-03-nmos-support-for-ipmxpep">AMWA BCP-005-03: NMOS Support for IPMX/PEP</h1>
+<p><em>(c) AMWA 2025, CC Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)</em></p>
+<p><img alt="NMOS logo" src="../images/NMOS-logo.png" /></p>
+<h2 id="introduction">Introduction</h2>
+<p>The Privacy Encryption Protocol (PEP) is defined by the <a href="https://vsf.tv/" title="Video Services Forum">VSF</a> technical recommendation <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a>. It specifies a method for generating cryptographic keys used in the encryption, decryption, and authentication of media content transmitted over multicast and unicast networks. PEP is designed to support multiple transport protocol adaptations. The default adaptation, defined in the <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a> technical recommendation, addresses privacy encryption of media streams using the RTP streaming protocol. Additionally, the <a href="https://vsf.tv/" title="Video Services Forum">VSF</a> technical recommendation <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-14_2024-09-24.pdf" title="Internet Protocol Media Experience (IPMX): IPMX USB">TR-10-14</a> defines an adaptation for the USB-IP streaming protocol.</p>
+<p>This document focuses on the application of PEP within an NMOS environment. Detailed information about PEP itself is provided in the <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a> technical recommendation.</p>
+<p>While the Privacy Encryption Protocol (PEP) is primarily specified for IPMX streaming environments, it may also be utilized in non-IPMX contexts by devices implementing the <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-14_2024-09-24.pdf" title="Internet Protocol Media Experience (IPMX): IPMX USB">TR-10-14</a> technical recommendation alongside compatible transport protocol adaptations.</p>
+<h2 id="use-of-normative-language">Use of Normative Language</h2>
+<p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="https://tools.ietf.org/html/rfc2119" title="Key words for use in RFCs">RFC 2119</a>.</p>
+<h2 id="definitions">Definitions</h2>
+<p>The NMOS terms 'Controller', 'Node', 'Source', 'Flow', 'Sender', 'Receiver' are used as defined in the NMOS Glossary.</p>
+<p>The term 'PSK' refers to a Pre-Shared Key that serves as the root secret for the derivation of encryption and authentication keys in the privacy encryption process.</p>
+<p>The term 'PEP' refers to the Privacy Encryption Protocol, defined in the <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a> technical recommendation for IPMX.</p>
+<p>The term 'ECDH' refers to the Elliptic Curve Diffie-Hellman key agreement algorithm.</p>
+<h2 id="compliance">Compliance</h2>
+<p>A Node MUST comply with all strict requirements introduced by <code>shall</code> clauses in <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a>. Some of these requirements are restated in this specification to emphasize their importance, without altering their original normative scope. This specification can define additional values for the <code>protocol</code>, <code>mode</code>, and <code>ecdh_curve</code> parameters beyond those specified in <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a>, <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-14_2024-09-24.pdf" title="Internet Protocol Media Experience (IPMX): IPMX USB">TR-10-14</a>, or other VSF/IPMX technical recommendations. The inclusion of these additional values does not violate any <code>shall</code> clause in the referenced technical recommendations.</p>
+<p>A Node MUST comply with the non-strict requirements introduced by <code>should</code> and <code>may</code> clauses in <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a>, where such requirements are explicitly elevated to strict requirements through a <code>MUST</code> clause in this specification.</p>
+<p>A Node MUST comply with new requirements introduced by this specification that are not present in <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a>.</p>
+<h2 id="general-provisions">General Provisions</h2>
+<p>A Node that is capable of transmitting privacy-encrypted streams using the Privacy Encryption Protocol MUST expose Source, Flow, and Sender resources in the IS-04 Node API.</p>
+<p>A Node that is capable of receiving privacy-encrypted streams using the Privacy Encryption Protocol MUST expose Receiver resources in the IS-04 Node API.</p>
+<p>A Node compliant with this specification MUST implement <a href="https://specs.amwa.tv/is-04/" title="AMWA IS-04 NMOS Discovery and Registration Specification">IS-04</a> v1.3 or higher and <a href="https://specs.amwa.tv/is-05/" title="AMWA IS-05 NMOS Device Connection Management Specification">IS-05</a> v1.1 or higher.</p>
+<h2 id="psk-provisioning">PSK Provisioning</h2>
+<p>As indicated in <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a>, the provisioning of PSK(s) in devices supporting the Privacy Encryption Protocol (PEP) is under the control of the device manufacturer.</p>
+<p>Refer to the "Key Distribution" section of <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a> for more details about the key distribution and provisioning processes.</p>
+<p>The provisioning of PSKs is intentionally under manufacturer control, providing flexibility in implementation methods to support diverse deployment environments and security requirements.</p>
+<h3 id="identification">Identification</h3>
+<p>A PSK has a value and a size (128, 256, or 512 bits). Each PSK is identified by a unique <code>key_id</code>. This uniqueness ensures unambiguous identification of each PSK in use, reducing security risks associated with key duplication. The provisioning process ensures that, for a given <code>key_id</code>, all devices under a common administrative authority receive the same PSK value and size.</p>
+<blockquote>
+<p>Note: The <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a> technical recommendation includes explicit requirements regarding the identification of the PSK size in the vendor-specific PSK provisioning API.</p>
+</blockquote>
+<h3 id="association">Association</h3>
+<p>Each Sender using privacy encryption MUST be associated with a provisioned PSK via its <code>key_id</code>. Each Receiver using privacy encryption MUST be associated with a set of provisioned PSKs, identified by their <code>key_id</code> values. </p>
+<p>A Sender MUST populate the <code>ext_privacy_key_id</code> extended transport parameter in the IS-05 <code>active</code>, <code>staged</code> and <code>constraints</code> endpoints with the <code>key_id</code> of its associated PSK. A Sender MUST only expose the IS-05 extended transport parameters of the Privacy Encryption Protocol when it is associated with a provisioned PSK.</p>
+<p>A Receiver MUST populate the <code>ext_privacy_key_id</code> extended transport parameter in the IS-05 <code>constraints</code> endpoint with all acceptable <code>key_id</code> values. At activation time, a Receiver using privacy encryption becomes associated with one of the provisioned PSKs through the <code>ext_privacy_key_id</code> extended transport parameter. A Receiver MUST fail activation if the provided <code>key_id</code> is not provisioned in the device or is not listed in the Receiver's <code>ext_privacy_key_id</code> transport parameter constraints. A Receiver MUST only expose the IS-05 extended transport parameters of the Privacy Encryption Protocol when it is associated with at least one provisioned PSK.</p>
+<h2 id="enablingdisabling-privacy-encryption">Enabling/Disabling Privacy Encryption</h2>
+<p>As indicated in <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a>, the enabling and disabling of privacy encryption in devices supporting the PEP technology is under the control of the device manufacturer.</p>
+<p>Devices MUST NOT allow changes to the state (enabled or disabled) of privacy encryption through the IS-05 and IS-11 NMOS APIs.</p>
+<p>Refer to the "SDP Transport File Parameters / NMOS Transport Parameters" section of <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a> for further details on how privacy encryption is enabled or disabled.</p>
+<p>The enabling and disabling of privacy encryption is intentionally under manufacturer control, providing flexibility in implementation methods to support diverse deployment environments and security requirements.</p>
+<blockquote>
+<p>Note: The security postulate for a Sender is that privacy-encrypted content remains protected and is never transmitted in clear by any Sender within a device. For a Receiver, the postulate is that content can be trustworthy only when received with privacy encryption, requiring that privacy-encrypted content is never composited, mixed, or multiplexed with content received in clear by other Receivers.</p>
+<p>Note: Privacy encryption is not a content protection mechanism, and providing access to a low-quality stream violates the privacy objective.</p>
+</blockquote>
+<h2 id="parameters">Parameters</h2>
+<p>The <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a> technical recommendation defines the following parameters, which are accessible as IS-05 extended transport parameters (including constraints), and as <code>privacy</code> attribute parameters in SDP transport files, with the exception of ECDH parameters which are not present in the SDP file.</p>
+<p>For transport protocols using an SDP transport file: a Sender MUST communicate privacy encryption parameters in the SDP transport file associated with a privacy-encrypted stream, and MUST also communicate these parameters using the extended NMOS transport parameters.</p>
+<p>For transport protocols that do not use an SDP transport file: a Sender or Receiver MUST communicate the privacy encryption parameters using the extended NMOS transport parameters.</p>
+<table>
+<thead>
+<tr>
+<th>Transport Parameter Name</th>
+<th>Type</th>
+<th>SDP Name</th>
+<th>Sender</th>
+<th>Receiver</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ext_privacy_protocol</td>
+<td>string</td>
+<td>protocol</td>
+<td>r/w</td>
+<td>r/w</td>
+</tr>
+<tr>
+<td>ext_privacy_mode</td>
+<td>string</td>
+<td>mode</td>
+<td>r/w</td>
+<td>r/w</td>
+</tr>
+<tr>
+<td>ext_privacy_iv</td>
+<td>string</td>
+<td>iv</td>
+<td>read-only</td>
+<td>r/w</td>
+</tr>
+<tr>
+<td>ext_privacy_key_generator</td>
+<td>string</td>
+<td>key_generator</td>
+<td>read-only</td>
+<td>r/w</td>
+</tr>
+<tr>
+<td>ext_privacy_key_version</td>
+<td>string</td>
+<td>key_version</td>
+<td>read-only</td>
+<td>r/w</td>
+</tr>
+<tr>
+<td>ext_privacy_key_id</td>
+<td>string</td>
+<td>key_id</td>
+<td>read-only</td>
+<td>r/w</td>
+</tr>
+<tr>
+<td>ext_privacy_ecdh_sender_public_key</td>
+<td>string</td>
+<td>-</td>
+<td>read-only</td>
+<td>r/w</td>
+</tr>
+<tr>
+<td>ext_privacy_ecdh_receiver_public_key</td>
+<td>string</td>
+<td>-</td>
+<td>r/w</td>
+<td>read-only</td>
+</tr>
+<tr>
+<td>ext_privacy_ecdh_curve</td>
+<td>string</td>
+<td>-</td>
+<td>r/w</td>
+<td>r/w</td>
+</tr>
+</tbody>
+</table>
+<h3 id="is-05-transport-parameters">IS-05 Transport Parameters</h3>
+<p>A Sender/Receiver implementing <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a> MUST provide the following extended transport parameters in the IS-05 <code>active</code>, <code>staged</code> and <code>constraints</code> endpoints:
+- <code>ext_privacy_protocol</code>
+- <code>ext_privacy_mode</code>
+- <code>ext_privacy_iv</code>
+- <code>ext_privacy_key_generator</code>
+- <code>ext_privacy_key_version</code>
+- <code>ext_privacy_key_id</code></p>
+<p>A Sender/Receiver implementing <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a> and supporting ECDH modes MUST also provide the following extended transport parameters in the IS-05 <code>active</code>, <code>staged</code>, and <code>constraints</code> endpoints: 
+- <code>ext_privacy_ecdh_sender_public_key</code>
+- <code>ext_privacy_ecdh_receiver_public_key</code>
+- <code>ext_privacy_ecdh_curve</code></p>
+<p>The <code>ext_privacy_*</code> transport parameters MAY be used with any transport supporting privacy encryption and having a protocol adaptation specified in <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a>, <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-14_2024-09-24.pdf" title="Internet Protocol Media Experience (IPMX): IPMX USB">TR-10-14</a>, other VSF/IPMX technical recommendations, or this specification.</p>
+<h3 id="is-05-transport-parameters-constraints">IS-05 Transport Parameters Constraints</h3>
+<p>Each <code>ext_privacy_*</code> transport parameter MUST have an associated constraint that either indicates that the parameter is unconstrained, allowing any valid value, or that it is constrained to a specific set of values. A parameter identified as <code>read-only</code> in the parameter definitions table MUST always be constrained to a single value. A Sender/Receiver MUST fail activation if any IS-05 <code>ext_privacy_*</code> transport parameter violates its defined constraints.</p>
+<p>The <code>constraints</code> endpoint of the parameters <code>ext_privacy_protocol</code> and <code>ext_privacy_mode</code> on both Senders and Receivers MUST enumerate all  supported protocols and modes. These parameters MUST NOT be unconstrained, and their constraints MUST NOT change when the <code>master_enable</code> attribute of a Sender/Receiver <code>active</code> endpoint is <code>true</code>.</p>
+<p>The <code>constraints</code> endpoint of the parameter <code>ext_privacy_ecdh_curve</code> on both Senders and Receivers MUST enumerate all supported curves. This parameter MUST NOT be unconstrained, and its constraints MUST NOT change when the <code>master_enable</code> attribute of a Sender/Receiver <code>active</code> endpoint is <code>true</code>.</p>
+<blockquote>
+<p>Note: The constraints on the parameters <code>ext_privacy_protocol</code>, <code>ext_privacy_mode</code>, and <code>ext_privacy_ecdh_curve</code> are expected to remain the same unless the device's Privacy Encryption Protocol support is reconfigured by a User through a vendor-specific mechanism.</p>
+</blockquote>
+<h3 id="protocol">Protocol</h3>
+<p>The <code>protocol</code> parameter MUST be one of the following:
+- "RTP"
+- "RTP_KV"
+- "USB"
+- "USB_KV"
+- "NULL"</p>
+<p>If privacy encryption is disabled or not supported by a Sender/Receiver, and the <code>ext_privacy_*</code> transport parameters are present, the "NULL" protocol MUST be used for the <code>ext_privacy_protocol</code> transport parameter in the <code>active</code> and <code>staged</code> endpoints to indicate that privacy encryption is not available or is disabled. The associated constraints MUST allow only the "NULL" protocol when the <code>ext_privacy_protocol</code> parameter is "NULL".</p>
+<p>Note: The string "NULL" is not equivalent to the JSON <code>null</code> value.</p>
+<p>The "RTP" <code>protocol</code> MUST be supported by all devices implementing <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a> for the <code>urn:x-nmos:transport:rtp</code>, <code>urn:x-nmos:transport:rtp.mcast</code>, and <code>urn:x-nmos:transport:rtp.ucast</code> transports.</p>
+<p>The "RTP_KV" <code>protocol</code> MAY be supported by devices supporting the "RTP" <code>protocol</code>.</p>
+<p>The "USB_KV" <code>protocol</code> MUST be supported by all devices implementing <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a> and <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-14_2024-09-24.pdf" title="Internet Protocol Media Experience (IPMX): IPMX USB">TR-10-14</a> for the <code>urn:x-nmos:transport:usb</code> transport.</p>
+<p>The "USB" <code>protocol</code> MAY be supported by devices supporting the "USB_KV" <code>protocol</code>.</p>
+<h3 id="mode">Mode</h3>
+<p>If privacy encryption is disabled or not supported by a Sender/Receiver, and the <code>ext_privacy_*</code> transport parameters are present, the "NULL" mode MUST be used for the <code>ext_privacy_mode</code> transport parameter in the <code>active</code> and <code>staged</code> endpoints to indicate that privacy encryption is not available or is disabled. The associated constraints MUST allow only the "NULL" mode when the <code>ext_privacy_mode</code> parameter is "NULL".</p>
+<p>Note: The string "NULL" is not equivalent to the JSON <code>null</code> value.</p>
+<h4 id="for-protocols-rtp-and-rtp_kv">For protocols "RTP" and "RTP_KV"</h4>
+<p>The <code>mode</code> parameter MUST be one of the following:
+- "AES-128-CTR"
+- "AES-256-CTR"
+- "AES-128-CTR_CMAC-64"
+- "AES-256-CTR_CMAC-64"
+- "AES-128-CTR_CMAC-64-AAD"
+- "AES-256-CTR_CMAC-64-AAD"
+- "ECDH_AES-128-CTR"
+- "ECDH_AES-256-CTR"
+- "ECDH_AES-128-CTR_CMAC-64"
+- "ECDH_AES-256-CTR_CMAC-64"
+- "ECDH_AES-128-CTR_CMAC-64-AAD"
+- "ECDH_AES-256-CTR_CMAC-64-AAD".</p>
+<p>The "AES-128-CTR" <code>mode</code> MUST be supported by all devices implementing the "RTP" or "RTP_KV" protocols.</p>
+<p>A Sender configured with a 256-bit or 512-bit PSK MUST support only modes based on AES-256. A Sender configured with a 128-bit PSK MAY support modes based on AES-128, AES-256, or both.</p>
+<blockquote>
+<p>Note: If the constraints on the IS-05 <code>ext_privacy_mode</code> transport parameter of a Sender only allow modes based on AES-128, it indicates that only 128-bit PSKs are used.</p>
+<p>Note: The "AES-128-CTR" <code>mode</code> and a PSK of 128-bit are supported by all devices implementing the "RTP" or "RTP_KV" protocols. If a Sender is associated with a 256-bit PSK, then the "AES-128-CTR" <code>mode</code> will not be available for that Sender unless the associated PSK size becomes 128 bit.</p>
+</blockquote>
+<p>A Receiver configured with a 256-bit or 512-bit PSK MUST support modes based on AES-256. A Receiver configured with a 128-bit PSK MUST support modes based on AES-128. A Receiver MAY support both AES-128 and AES-256-based modes simultaneously. A Receiver MUST fail activation if a <code>key_id</code> associated with a 256-bit or 512-bit PSK is used with a <code>mode</code> that is not based on AES-256.</p>
+<blockquote>
+<p>Note: If the constraints on the IS-05 <code>ext_privacy_mode</code> transport parameter of a Receiver only allow modes based on AES-128, it indicates that only 128-bit PSKs are allowed.</p>
+</blockquote>
+<p>The PEP "urn:ietf:params:rtp-hdrext:PEP-Full-IV-Counter" and "urn:ietf:params:rtp-hdrext:PEP-Short-IV-Counter" RTP Extension Headers MUST be declared in the SDP transport file. The declaration MUST be performed as per <a href="https://www.rfc-editor.org/rfc/rfc8285.html" title="A General Mechanism for RTP Header Extensions">RFC-8285</a>, using the "sendonly" direction.</p>
+<h4 id="for-protocol-usb-and-usb_kv">For protocol "USB" and "USB_KV"</h4>
+<p>The <code>mode</code> parameter MUST be one of the following:
+- "AES-128-CTR_CMAC-64-AAD"
+- "AES-256-CTR_CMAC-64-AAD"
+- "ECDH_AES-128-CTR_CMAC-64-AAD"
+- "ECDH_AES-256-CTR_CMAC-64-AAD"</p>
+<p>The "AES-128-CTR_CMAC-64-AAD" <code>mode</code> MUST be supported by all devices implementing the "USB" or "USB_KV" protocols.</p>
+<h3 id="elliptic-curve-diffie-hellman-ecdh">Elliptic Curve Diffie-Hellman (ECDH)</h3>
+<p>The ECDH mode allows <strong>Perfect Forward Secrecy</strong>.</p>
+<p>The <code>ecdh_curve</code> parameter MUST be one of the following:
+- "secp256r1"
+- "secp521r1"
+- "25519"
+- "448"
+- "NULL"</p>
+<p>If the ECDH modes are not supported by a Sender/Receiver and the <code>ext_privacy_*</code> transport parameters are present, the "NULL" curve MUST be used for the <code>ext_privacy_ecdh_curve</code> transport parameter in the <code>active</code> and <code>staged</code> endpoints to indicate that ECDH modes are not available. The associated constraints MUST allow only the "NULL" curve when the <code>ext_privacy_ecdh_curve</code> parameter is "NULL".</p>
+<p>The "secp256r1" <code>ecdh_curve</code> MUST be supported by all devices that implement ECDH modes.</p>
+<p>The ECDH functionality is available exclusively through the IS-05 extended transport parameters. There are no ECDH-related parameters defined in the <code>privacy</code> attribute of an SDP transport file. ECDH modes of operation are optional, and support for these ECDH-based modes is not required for conformance with <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a>, <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-14_2024-09-24.pdf" title="Internet Protocol Media Experience (IPMX): IPMX USB">TR-10-14</a>, or other VSF/IPMX technical recommendations.</p>
+<blockquote>
+<p>Note: A Sender/Receiver generates a new public key whenever it explicitly or implicitly becomes inactive.</p>
+</blockquote>
+<h2 id="is-04-is-05-is-11-senders">IS-04, IS-05, IS-11 Senders</h2>
+<p>A Sender compliant with this specification MUST provide a <code>privacy</code> Sender attribute to indicate that privacy encryption and the PEP protocol are used by the Sender. This attribute MUST be <code>true</code> if a <code>privacy</code> attribute is present in the Sender's SDP transport file, and MUST be <code>false</code> if no <code>privacy</code> attributes are present. If an SDP transport file is not currently available because the Sender is inactive, the <code>privacy</code> attribute indicates whether such a file would contain a <code>privacy</code> attribute if the Sender were active. If the Sender's transport protocol does not use an SDP transport file, the attribute indicates whether privacy encryption and the PEP protocol are used by the Sender. </p>
+<p>A Sender implementing privacy encryption and the PEP protocol MUST provide IS-05 <code>ext_privacy_*</code> extended transport parameters and associated constraints that specify the extent of support for the features defined in <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a>.</p>
+<p>If the Sender's <code>privacy</code> attribute is <code>false</code>, the <code>ext_privacy_protocol</code> and <code>ext_privacy_mode</code> transport parameters MUST be "NULL".
+If the Sender's <code>privacy</code> attribute is <code>true</code>, the <code>ext_privacy_protocol</code> and <code>ext_privacy_mode</code> transport parameters MUST NOT be "NULL".</p>
+<blockquote>
+<p>Note: A Sender not providing the <code>privacy</code> attribute is either not supporting privacy encryption and the PEP protocol, or declaring itself as not implementing this specification.</p>
+</blockquote>
+<p>A Sender MAY provide a <code>urn:x-nmos:cap:transport:privacy</code> capability to indicate that privacy encryption and the PEP protocol are supported. A Sender MAY support either the <code>true</code> or <code>false</code> value. </p>
+<blockquote>
+<p>Note: A Sender is not allowed by <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a> to support both values. The <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a> specification explicitly states that "Only a vendor-specific configuration mechanism shall be able to configure a Sender/Receiver to disable privacy encryption.".</p>
+</blockquote>
+<p>A Controller MAY use a Sender's <code>urn:x-nmos:cap:transport:privacy</code> capability and IS-05 <code>ext_privacy_*</code> transport parameters constraints to verify Receivers compatibility with a Sender. If necessary, it MAY  adjust transport parameters of the Sender (within its declared constraints) to make it compatible with the Receivers. </p>
+<p>A Sender MUST NOT list the <code>urn:x-nmos:cap:transport:privacy</code> capability in its IS-11 <code>constraints/supported</code> endpoint. As such, a Controller cannot constrain the Sender's <code>urn:x-nmos:cap:transport:privacy</code> capability, as privacy encryption is a protection mechanism under the control of the Sender only. </p>
+<blockquote>
+<p>Note: A Sender is configured to produce either privacy-encrypted streams or non-encrypted streams. The <code>urn:x-nmos:cap:transport:privacy</code> capability indicates the current configuration of the Sender.</p>
+</blockquote>
+<h3 id="sdp-transport-file">SDP Transport File</h3>
+<p>The <code>privacy</code> attribute of <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a> is used in an SDP transport file to indicate that privacy encryption and the PEP protocol are used.</p>
+<p>An example of an SDP transport file is provided in <a href="../../examples/">Examples</a>.</p>
+<h3 id="consistency">Consistency</h3>
+<p>If the <code>urn:x-nmos:cap:transport:privacy</code> capability allows only the value <code>true</code>, then the Sender's associated SDP transport file, if any, MUST include a <code>privacy</code> attribute, and the IS-05 <code>ext_privacy_protocol</code> and <code>ext_privacy_mode</code> transport parameters MUST have values other than "NULL".</p>
+<p>If the <code>urn:x-nmos:cap:transport:privacy</code> capability allows only the value <code>false</code>, then the Sender's associated SDP transport file, if any, MUST NOT include a <code>privacy</code> attribute, and the IS-05 <code>ext_privacy_protocol</code> and <code>ext_privacy_mode</code> transport parameters, if present, MUST have the value "NULL".</p>
+<p>The <code>urn:x-nmos:cap:transport:privacy</code> capability MUST NOT allow both <code>true</code> and <code>false</code> values.</p>
+<h2 id="is-04-is-05-is-11-receivers">IS-04, IS-05, IS-11 Receivers</h2>
+<p>A Receiver implementing privacy encryption and the PEP protocol MUST provide IS-05 <code>ext_privacy_*</code> extended transport parameters and associated constraints that specify the extent of support for the features defined in <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a>.</p>
+<p>A Receiver MUST provide a <code>urn:x-nmos:cap:transport:privacy</code> capability to indicate its support for Senders that use privacy encryption and the PEP protocol. If this capability has a singular value of <code>true</code>, that indicates support for privacy encryption and the PEP protocol. If this capability has a singular value of <code>false</code>, that indicates that they are not supported. A Receiver MAY support either the <code>true</code> or <code>false</code> value but MUST NOT support both as described in <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a>.</p>
+<blockquote>
+<p>Note: A Receiver is not allowed by <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a> to support both values. An NMOS API is not allowed to change the state (enabled or disabled) of privacy encryption.</p>
+</blockquote>
+<h2 id="controller">Controller</h2>
+<p>A Controller establishes that an active Sender is using privacy encryption and the PEP protocol by checking the Sender's <code>privacy</code> attribute, or by checking the Sender’s SDP transport file for a <code>privacy</code> attribute, or by checking the Sender's <code>urn:x-nmos:cap:transport:privacy</code> capability, or by verifying the Sender's IS-05  <code>ext_privacy_*</code> extended transport parameters at the <code>active</code> endpoint.</p>
+<p>The Sender's <code>privacy</code> attribute being set to <code>true</code> or the presence of the <code>privacy</code> attribute in the SDP transport file, indicates that the stream is privacy-protected. </p>
+<p>Similarly, the Sender's IS-04 <code>urn:x-nmos:cap:transport:privacy</code> capability, enumerating the value <code>true</code>, indicates that the stream is privacy-protected. </p>
+<p>Finally, the presence of the Sender's IS-05 <code>ext_privacy_protocol</code> and <code>ext_privacy_mode</code> transport parameters at the <code>active</code> endpoint with a value other than "NULL" indicate that the stream is privacy-protected.</p>
+<p>When considering an inactive Sender, a Controller MUST NOT rely on the content of the SDP transport file as it MAY NOT be available or up to date until the Sender becomes active.</p>
+<p>Only Receivers that support privacy encryption and the PEP protocol can consume such streams.</p>
+<p>A Controller is responsible for assessing Receiver compatibility with an active Sender with respect to privacy encryption. This process is performed at both the IS-04 and IS-05 levels. </p>
+<p>A Controller verifies compliance at the IS-04 level using the active Sender’s <code>privacy</code> attribute or <code>urn:x-nmos:cap:transport:privacy</code> capability, and the Receiver’s <code>urn:x-nmos:cap:transport:privacy</code> capability. When detecting non-compliance the controller SHOULD notify the User and MUST prevent activation unless the User overrides this behavior. When detecting compliance the controller MUST perform a further check at the IS-05 level using the Sender’s and Receivers’ IS-05 <code>ext_privacy_*</code> transport parameters and associated constraints.</p>
+<p>A Controller MUST ensure that the <code>protocol</code> and <code>mode</code> parameters are identical between the Sender and all subscribing or connecting Receivers. If an ECDH <code>mode</code> is used, the Controller MUST also ensure that the <code>ecdh_curve</code> parameter is identical between the Sender and the subscribing or connecting Receiver. A Controller MAY constrain the Sender with <code>protocol</code>, <code>mode</code> and <code>curve</code> privacy encryption parameters compatible with the Receivers. A Controller MUST forward the Sender's <code>iv</code>, <code>key_generator</code>, <code>key_version</code>, and <code>key_id</code> parameters to all subscribing or connecting Receivers. If an ECDH <code>mode</code> is used, the Controller MUST exchange the ECDH <code>public_key</code> parameters between the peers.</p>
+<p>If a mismatch is detected in the <code>protocol</code>, <code>mode</code>, or <code>ecdh_curve</code> parameters, the Controller SHOULD notify the User and MUST prevent activation unless the User overrides this behavior.</p>
+<blockquote>
+<p>Note: IS-11 operates at the IS-04 capabilities/constraints level and cannot be used to constrain privacy encryption, which is managed using IS-05.</p>
+</blockquote>
+<p>A Controller MAY perform the compatibility checks limited to the IS-05 level for Senders and Receivers that do not implement this specification. These are Senders not providing the <code>privacy</code> attribute nor the <code>urn:x-nmos:cap:transport:privacy</code> capability, and Receivers not providing the <code>urn:x-nmos:cap:transport:privacy</code> capability. Such Senders and Receivers MAY still be compliant with <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a>, and provide privacy encryption through IS-05 transport parameters and the SDP transport file.</p>
+<h3 id="is-05-sender-activation">IS-05 Sender Activation</h3>
+<p>The effective values of the Sender's read-only IS-05 <code>ext_privacy_*</code> transport parameters <code>iv</code>, <code>key_generator</code>, <code>key_version</code>, and <code>key_id</code>, as well as the associated <code>privacy</code> attribute parameters in the Sender's SDP transport file, are not fixed until activation, when <code>master_enable</code> becomes <code>true</code> at the <code>active</code> endpoint. A Controller MUST ensure the Sender has been activated in order to get the effective parameter values prior to using them.</p>
+<p>An active sender MUST match the values of the <code>privacy</code> attribute parameters in the SDP transport file to the values of the active <code>ext_privacy_*</code> transport parameters.</p>
+<p>The <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a> expression "becomes inactive", in the context of the ECDH private/public key pair, MUST be interpreted as an activation with <code>master_enable</code> set to <code>false</code>, resulting in <code>master_enable</code> remaining or becoming <code>false</code> at the <code>active</code> endpoint of a Sender.</p>
+<blockquote>
+<p>Note: In other non-ECDH contexts, the expression "becomes inactive" is caused by either (a) internally becoming momentarily inactive during an activation where <code>master_enable</code> is set to <code>true</code>, resulting in <code>master_enable</code> remaining <code>true</code> at the <code>active</code> endpoint of a Sender (re-activation), or (b) becoming inactive during an activation with <code>master_enable</code> set to <code>false</code>, resulting in <code>master_enable</code> remaining or becoming <code>false</code> at the <code>active</code> endpoint of a Sender (de-activation).</p>
+</blockquote>
+<p>During an activation (<code>master_enable</code> becomes true) or re-activation (<code>master_enable</code> remains true), a Sender MAY change all privacy encryption parameters, but the Sender's ECDH private/public key pair MUST remain unchanged.</p>
+<p>At both activation (<code>master_enable</code> becomes true) and re-activation (<code>master_enable</code> remains true), a Sender MUST update the <code>ext_privacy_*</code> transport parameters at the <code>staged</code>, <code>active</code>, and <code>constraints</code> endpoints, and MUST update the <code>privacy</code> attribute parameters of the SDP transport file at the <code>transportfile</code> endpoint, prior to completing the activation.</p>
+<h4 id="with-ecdh">With ECDH</h4>
+<p>The ECDH mode is only supported in peer-to-peer mode, where one Receiver connects or subscribes to one Sender.</p>
+<p>De-activation of a Sender (with <code>master_enable</code> set to <code>false</code>), MUST regenerate the value of the <code>ext_privacy_ecdh_sender_public_key</code> transport parameter, provided that ECDH modes are supported.</p>
+<p>At de-activation (<code>master_enable</code> becomes or remains <code>false</code>), a Sender MUST update the <code>ext_privacy_ecdh_sender_public_key</code> transport parameter at the <code>staged</code>, <code>active</code>, and <code>constraints</code> endpoints prior to completing the de-activation. A Controller MUST perform an activation with <code>master_enable</code> set to <code>false</code> (triggering the regeneration of a new <code>ext_privacy_ecdh_sender_public_key</code> transport parameter value), in order to change the value of the Sender’s <code>ext_privacy_ecdh_curve</code> transport parameter.</p>
+<p>A Controller MUST provide the value of the peer Receiver's <code>ext_privacy_ecdh_receiver_public_key</code> transport parameter to the Sender during activation, when <code>master_enable</code> is set to <code>true</code>.</p>
+<p>A Controller MUST read the value of the Sender's <code>ext_privacy_ecdh_sender_public_key</code> transport parameter after activation, when <code>master_enable</code> is <code>true</code>. </p>
+<p>With ECDH, a Controller MUST exchange the Sender's and Receiver's public keys in order to activate an ECDH session. The ECDH functionality is available for peer-to-peer connections only. A Sender becomes associated with a peer Receiver at activation, when <code>master_enable</code> becomes true.</p>
+<h3 id="is-05-receiver-activation">IS-05 Receiver activation</h3>
+<p>For transports supporting an SDP transport file, if the ECDH mode is not used, the process of activating a Receiver is the same with or without privacy encryption. A Controller SHOULD retrieve the SDP transport file of a Sender and provide it to the Receivers at activation. The Sender's privacy encryption parameters are automatically taken from the SDP transport file.</p>
+<p>The <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a> expression "becomes inactive", in the context of the ECDH private/public key pair, MUST be interpreted as an activation with <code>master_enable</code> set to <code>false</code>, resulting in <code>master_enable</code> remaining or becoming <code>false</code> at the <code>active</code> endpoint of a Receiver.</p>
+<blockquote>
+<p>Note: In other non-ECDH contexts, the expression "become inactive" is caused by either (1) internally becoming momentarily inactive during an activation with <code>master_enable</code> set to <code>true</code>, resulting in <code>master_enable</code> remaining <code>true</code> at the Receiver's <code>active</code> endpoint (re-activation), or (2) becoming inactive during an activation with <code>master_enable</code> set to <code>false</code>, resulting in <code>master_enable</code> remaining or becoming <code>false</code> at the Receiver's <code>active</code> endpoint (de-activation).</p>
+</blockquote>
+<p>During an activation (<code>master_enable</code> becomes <code>true</code>) or re-activation (<code>master_enable</code> remains true), a Receiver MAY change all privacy encryption parameters, but the Receiver's ECDH private/public key pair MUST remain unchanged.</p>
+<p>At both activation (<code>master_enable</code> becomes <code>true</code>) and re-activation (<code>master_enable</code> remains <code>true</code>), a Receiver MUST update the <code>ext_privacy_*</code> transport parameters at the <code>staged</code>, <code>active</code>, and <code>constraints</code> endpoints prior to completing the activation.</p>
+<h4 id="with-ecdh_1">With ECDH</h4>
+<p>The ECDH mode is supported only in peer-to-peer mode, where one Receiver connects or subscribes to one Sender.</p>
+<p>De-activation of a Receiver (with <code>master_enable</code> set to <code>false</code>) MUST regenerate the value of the <code>ext_privacy_ecdh_receiver_public_key</code> transport parameter, provided that ECDH modes are supported. </p>
+<p>At de-activation (<code>master_enable</code> becomes or remains <code>false</code>), a Receiver MUST update the <code>ext_privacy_ecdh_receiver_public_key</code> transport parameter at the <code>staged</code>, <code>active</code>, and <code>constraints</code> endpoints prior to completing the de-activation. A Controller MUST perform an activation with <code>master_enable</code> set to <code>false</code> (triggering the regeneration of a new <code>ext_privacy_ecdh_receiver_public_key</code> transport parameter value), in order to change the value of the Receiver’s <code>ext_privacy_ecdh_curve</code> transport parameter.</p>
+<p>A Controller MUST read the value of the Receiver's <code>ext_privacy_ecdh_receiver_public_key</code> transport parameter prior to activation, when <code>master_enable</code> is <code>false</code>. Once a Controller reads the <code>ext_privacy_ecdh_receiver_public_key</code> transport parameter of a Receiver and provides its value to a Sender, it MUST NOT perform any subsequent activation of that Receiver with <code>master_enable</code> set to <code>false</code>, if the current ECDH session with the Sender needs to be maintained, as this would regenerate the value of <code>ext_privacy_ecdh_receiver_public_key</code>.</p>
+<p>A Controller MUST provide the value of the peer Sender's <code>ext_privacy_ecdh_sender_public_key</code> transport parameter to the Receiver during activation, when <code>master_enable</code> is set to <code>true</code>.</p>
+<p>With ECDH, a Controller MUST exchange the Sender's and Receiver's public keys in order to activate an ECDH session. The ECDH functionality is available for peer-to-peer connections only. A Sender becomes associated with a peer Receiver at activation, when <code>master_enable</code> becomes <code>true</code>.</p>
+<h3 id="sequence-diagrams-informative">Sequence Diagrams (Informative)</h3>
+<p>The following sequence diagram illustrates a Controller evaluating the privacy encryption compliance of a Receiver with a Sender in a non-ECDH scenario. The Controller optionally reconfigures the Sender to match the Receiver capabilities. This process is performed while the Sender and Receiver are inactive (master_enable is false).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="Sequence Diagram without ECDH" src="../images/Sequence-General.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em><strong>Sequence Diagram without ECDH</strong></em></td>
+</tr>
+</tbody>
+</table>
+<p>The following sequence diagram illustrates a Controller evaluating the privacy encryption compliance of a Receiver with a Sender in an ECDH scenario. The Controller reconfigures the Sender by passing the Receiver's ECDH public key and optionally changes other Sender transport parameters to match the Receiver capabilities. This process is performed while the Sender and Receiver are inactive (master_enable is false).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="Sequence Diagram with ECDH" src="../images/Sequence-ECDH.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em><strong>Sequence Diagram with ECDH</strong></em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="rtp-transport-adaptation">RTP Transport Adaptation</h2>
+<p>The RTP Transport Adaptation is used for <code>urn:x-nmos:transport:rtp</code>, <code>urn:x-nmos:transport:rtp.mcast</code>, and <code>urn:x-nmos:transport:rtp.ucast</code>.</p>
+<p>See the <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-13_2024-01-19.pdf" title="Internet Protocol Media Experience (IPMX): Privacy Encryption Protocol (PEP)">TR-10-13</a> technical recommendation for further details.</p>
+<h2 id="usb-ip-transport-adaptation">USB-IP Transport Adaptation</h2>
+<p>The USB-IP Transport Adaptation is used for <code>urn:x-nmos:transport:usb</code>.</p>
+<p>See the <a href="https://vsf.tv/download/technical_recommendations/VSF_TR-10-14_2024-09-24.pdf" title="Internet Protocol Media Experience (IPMX): IPMX USB">TR-10-14</a> technical recommendation for the details.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":[],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"provider":"mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8dcc8e9c.min.js"></script>
+      
+        <script src="../javascripts/json-viewer.js"></script>
+      
+        <script src="../javascripts/amwa-branding.js"></script>
+      
+    
+  </body>
+</html>

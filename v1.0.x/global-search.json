@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "repository": "AMWA-TV/bcp-005-03",
+  "documents": [
+    {
+      "title": "AMWA BCP-005-03: NMOS Support for IPMX/PEP",
+      "url": "https://specs.amwa.tv/new/bcp-005-03/latest/NMOS-With-IPMX-PEP/",
+      "text": "AMWA BCP-005-03: NMOS Support for IPMX/PEP AMWA BCP-005-03: NMOS Support for IPMX/PEP Introduction Use of Normative Language Definitions Compliance General Provisions PSK Provisioning Identification Association Enabling/Disabling Privacy Encryption Parameters IS-05 Transport Parameters IS-05 Transport Parameters Constraints Protocol Mode Elliptic Curve Diffie-Hellman (ECDH) IS-04, IS-05, IS-11 Senders SDP Transport File Consistency IS-04, IS-05, IS-11 Receivers Controller IS-05 Sender Activation IS-05 Receiver activation Sequence Diagrams (Informative) RTP Transport Adaptation USB-IP Transport Adaptation NMOS With IPMX/PEP - AMWA BCP-005-03: NMOS Support for IPMX/PEP Skip to content AMWA BCP-005-03: NMOS Support for IPMX/PEP (c) AMWA 2025, CC Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0) Introduction The Privacy Encryption Protocol (PEP) is defined by the VSF technical recommendation TR-10-13 . It specifies a method for generating cryptographic keys used in the encryption, decryption, and authentication of media content transmitted over multicast and unicast networks. PEP is designed to support multiple transport protocol adaptations. The default adaptation, defined in the TR-10-13 technical recommendation, addresses privacy encryption of media streams using the RTP streaming protocol. Additionally, the VSF technical recommendation TR-10-14 defines an adaptation for the USB-IP streaming protocol. This document focuses on the application of PEP within an NMOS environment. Detailed information about PEP itself is provided in the TR-10-13 technical recommendation. While the Privacy Encryption Protocol (PEP) is primarily specified for IPMX streaming environments, it may also be utilized in non-IPMX contexts by devices implementing the TR-10-14 technical recommendation alongside compatible transport protocol adaptations. Use of Normative Language The key words \"MUST\", \"MUST NOT\", \"REQUIRED\", \"SHALL\", \"SHALL NOT\", \"SHOULD\", \"SHOULD NOT\", \"RECOMMENDED\", \"MAY\", and \"OPTIONAL\" in this document are to be interpreted as described in RFC 2119 . Definitions The NMOS terms 'Controller', 'Node', 'Source', 'Flow', 'Sender', 'Receiver' are used as defined in the NMOS Glossary. The term 'PSK' refers to a Pre-Shared Key that serves as the root secret for the derivation of encryption and authentication keys in the privacy encryption process. The term 'PEP' refers to the Privacy Encryption Protocol, defined in the TR-10-13 technical recommendation for IPMX. The term 'ECDH' refers to the Elliptic Curve Diffie-Hellman key agreement algorithm. Compliance A Node MUST comply with all strict requirements introduced by shall clauses in TR-10-13 . Some of these requirements are restated in this specification to emphasize their importance, without altering their original normative scope. This specification can define additional values for the protocol , mode , and ecdh_curve parameters beyond those specified in TR-10-13 , TR-10-14 , or other VSF/IPMX technical recommendations. The inclusion of these additional values does not violate any shall clause in the referenced technical recommendations. A Node MUST comply with the non-strict requirements introduced by should and may clauses in TR-10-13 , where such requirements are explicitly elevated to strict requirements through a MUST clause in this specification. A Node MUST comply with new requirements introduced by this specification that are not present in TR-10-13 . General Provisions A Node that is capable of transmitting privacy-encrypted streams using the Privacy Encryption Protocol MUST expose Source, Flow, and Sender resources in the IS-04 Node API. A Node that is capable of receiving privacy-encrypted streams using the Privacy Encryption Protocol MUST expose Receiver resources in the IS-04 Node API. A Node compliant with this specification MUST implement IS-04 v1.3 or higher and IS-05 v1.1 or higher. PSK Provisioning As indicated in TR-10-13 , the provisioning of PSK(s) in devices supporting the Privacy Encryption Protocol (PEP) is under the control of the device manufacturer. Refer to the \"Key Distribution\" section of TR-10-13 for more details about the key distribution and provisioning processes. The provisioning of PSKs is intentionally under manufacturer control, providing flexibility in implementation methods to support diverse deployment environments and security requirements. Identification A PSK has a value and a size (128, 256, or 512 bits). Each PSK is identified by a unique key_id . This uniqueness ensures unambiguous identification of each PSK in use, reducing security risks associated with key duplication. The provisioning process ensures that, for a given key_id , all devices under a common administrative authority receive the same PSK value and size. Note: The TR-10-13 technical recommendation includes explicit requirements regarding the identification of the PSK size in the vendor-specific PSK provisioning API. Association Each Sender using privacy encryption MUST be associated with a provisioned PSK via its key_id . Each Receiver using privacy encryption MUST be associated with a set of provisioned PSKs, identified by their key_id values. A Sender MUST populate the ext_privacy_key_id extended transport parameter in the IS-05 active , staged and constraints endpoints with the key_id of its associated PSK. A Sender MUST only expose the IS-05 extended transport parameters of the Privacy Encryption Protocol when it is associated with a provisioned PSK. A Receiver MUST populate the ext_privacy_key_id extended transport parameter in the IS-05 constraints endpoint with all acceptable key_id values. At activation time, a Receiver using privacy encryption becomes associated with one of the provisioned PSKs through the ext_privacy_key_id extended transport parameter. A Receiver MUST fail activation if the provided key_id is not provisioned in the device or is not listed in the Receiver's ext_privacy_key_id transport parameter constraints. A ",
+      "repository": "AMWA-TV/bcp-005-03"
+    },
+    {
+      "title": "Examples",
+      "url": "https://specs.amwa.tv/new/bcp-005-03/latest/examples/",
+      "text": "Examples Examples Examples - AMWA BCP-005-03: NMOS Support for IPMX/PEP Skip to content Examples receiver-ecdh-transport-parameters-active.json receiver-ecdh-transport-parameters-constraints.json receiver-transport-parameters-active.json receiver-transport-parameters-constraints.json receiver.json sender-ecdh-transport-parameters-active.json sender-ecdh-transport-parameters-constraints.json sender-transport-parameters-active.json sender-transport-parameters-constraints.json sender.json",
+      "repository": "AMWA-TV/bcp-005-03"
+    },
+    {
+      "title": "receiver.json",
+      "url": "https://specs.amwa.tv/new/bcp-005-03/latest/examples/receiver/",
+      "text": "receiver.json receiver.json receiver.json - AMWA BCP-005-03: NMOS Support for IPMX/PEP Skip to content receiver.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-005-03"
+    },
+    {
+      "title": "receiver-ecdh-transport-parameters-active.json",
+      "url": "https://specs.amwa.tv/new/bcp-005-03/latest/examples/receiver-ecdh-transport-parameters-active/",
+      "text": "receiver-ecdh-transport-parameters-active.json receiver-ecdh-transport-parameters-active.json receiver-ecdh-transport-parameters-active.json - AMWA BCP-005-03: NMOS Support for IPMX/PEP Skip to content receiver-ecdh-transport-parameters-active.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-005-03"
+    },
+    {
+      "title": "receiver-ecdh-transport-parameters-constraints.json",
+      "url": "https://specs.amwa.tv/new/bcp-005-03/latest/examples/receiver-ecdh-transport-parameters-constraints/",
+      "text": "receiver-ecdh-transport-parameters-constraints.json receiver-ecdh-transport-parameters-constraints.json receiver-ecdh-transport-parameters-constraints.json - AMWA BCP-005-03: NMOS Support for IPMX/PEP Skip to content receiver-ecdh-transport-parameters-constraints.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-005-03"
+    },
+    {
+      "title": "receiver-transport-parameters-active.json",
+      "url": "https://specs.amwa.tv/new/bcp-005-03/latest/examples/receiver-transport-parameters-active/",
+      "text": "receiver-transport-parameters-active.json receiver-transport-parameters-active.json receiver-transport-parameters-active.json - AMWA BCP-005-03: NMOS Support for IPMX/PEP Skip to content receiver-transport-parameters-active.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-005-03"
+    },
+    {
+      "title": "receiver-transport-parameters-constraints.json",
+      "url": "https://specs.amwa.tv/new/bcp-005-03/latest/examples/receiver-transport-parameters-constraints/",
+      "text": "receiver-transport-parameters-constraints.json receiver-transport-parameters-constraints.json receiver-transport-parameters-constraints.json - AMWA BCP-005-03: NMOS Support for IPMX/PEP Skip to content receiver-transport-parameters-constraints.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-005-03"
+    },
+    {
+      "title": "sender.json",
+      "url": "https://specs.amwa.tv/new/bcp-005-03/latest/examples/sender/",
+      "text": "sender.json sender.json sender.json - AMWA BCP-005-03: NMOS Support for IPMX/PEP Skip to content sender.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-005-03"
+    },
+    {
+      "title": "sender-ecdh-transport-parameters-active.json",
+      "url": "https://specs.amwa.tv/new/bcp-005-03/latest/examples/sender-ecdh-transport-parameters-active/",
+      "text": "sender-ecdh-transport-parameters-active.json sender-ecdh-transport-parameters-active.json sender-ecdh-transport-parameters-active.json - AMWA BCP-005-03: NMOS Support for IPMX/PEP Skip to content sender-ecdh-transport-parameters-active.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-005-03"
+    },
+    {
+      "title": "sender-ecdh-transport-parameters-constraints.json",
+      "url": "https://specs.amwa.tv/new/bcp-005-03/latest/examples/sender-ecdh-transport-parameters-constraints/",
+      "text": "sender-ecdh-transport-parameters-constraints.json sender-ecdh-transport-parameters-constraints.json sender-ecdh-transport-parameters-constraints.json - AMWA BCP-005-03: NMOS Support for IPMX/PEP Skip to content sender-ecdh-transport-parameters-constraints.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-005-03"
+    },
+    {
+      "title": "sender-transport-parameters-active.json",
+      "url": "https://specs.amwa.tv/new/bcp-005-03/latest/examples/sender-transport-parameters-active/",
+      "text": "sender-transport-parameters-active.json sender-transport-parameters-active.json sender-transport-parameters-active.json - AMWA BCP-005-03: NMOS Support for IPMX/PEP Skip to content sender-transport-parameters-active.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-005-03"
+    },
+    {
+      "title": "sender-transport-parameters-constraints.json",
+      "url": "https://specs.amwa.tv/new/bcp-005-03/latest/examples/sender-transport-parameters-constraints/",
+      "text": "sender-transport-parameters-constraints.json sender-transport-parameters-constraints.json sender-transport-parameters-constraints.json - AMWA BCP-005-03: NMOS Support for IPMX/PEP Skip to content sender-transport-parameters-constraints.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/bcp-005-03"
+    },
+    {
+      "title": "README",
+      "url": "https://specs.amwa.tv/new/bcp-005-03/latest/images/",
+      "text": "README README README - AMWA BCP-005-03: NMOS Support for IPMX/PEP Skip to content README This directory is for images used in documentation",
+      "repository": "AMWA-TV/bcp-005-03"
+    },
+    {
+      "title": "AMWA BCP-005-03: NMOS Support for IPMX/PEP",
+      "url": "https://specs.amwa.tv/new/bcp-005-03/latest/",
+      "text": "AMWA BCP-005-03: NMOS Support for IPMX/PEP AMWA BCP-005-03: NMOS Support for IPMX/PEP What does it do? Why does it matter? How does it work? Getting started AMWA BCP-005-03: NMOS Support for IPMX/PEP - AMWA BCP-005-03: NMOS Support for IPMX/PEP Skip to content AMWA BCP-005-03: NMOS Support for IPMX/PEP This repository holds the source for this Specification, part of the family of Networked Media Open Specifications from the Advanced Media Workflow Association What does it do? Establishes a standardized mechanism for NMOS Senders and Receivers to declare support for Privacy-encrypted streaming using IPMX/PEP (VSF TR-10-13). Why does it matter? An NMOS Controller can verify that any Receiver is compliant with a Sender producing Privacy-encrypted streams, as only IPMX/PEP-compliant Receivers can process such content. A standardized framework enables Controllers to systematically verify and/or enforce compliance. How does it work? Documents how IPMX/PEP capabilities are announced by both Senders and Receivers. Outlines the requirements for Senders, Receivers, and Controllers regarding the IPMX/PEP feature. Getting started There is more information about the NMOS Specifications and their GitHub repos at https://specs.amwa.tv/nmos .",
+      "repository": "AMWA-TV/bcp-005-03"
+    }
+  ]
+}

@@ -1,0 +1,230 @@
+{
+    "id": "00000000-0300-4000-ab00-4d5458005010",
+    "version": "1743115777:655086678",
+    "label": "Net Stream 0 Video 0",
+    "description": "This is the Net Stream 0 Video 0",
+    "tags": {
+        "urn:x-nmos:tag:grouphint/v1.0": [
+            "RTP 0:VIDEO 0"
+        ]
+    },
+    "transport": "urn:x-nmos:transport:rtp.mcast",
+    "device_id": "00000000-0100-4000-ab00-4d5458005010",
+    "interface_bindings": [
+        "eth0"
+    ],
+    "subscription": {
+        "sender_id": "00000000-0200-4000-ab00-4d5458005010",
+        "active": true
+    },
+    "format": "urn:x-nmos:format:video",
+    "caps": {
+        "media_types": [
+            "video/raw",
+            "video/jxsv"
+        ],
+        "version": "1742565303:771377354",
+        "constraint_sets": [
+            {
+                "urn:x-nmos:cap:meta:label": "JPEG-XS constraints",
+                "urn:x-nmos:cap:meta:enabled": true,
+                "urn:x-nmos:cap:meta:preference": 0,
+                "urn:x-nmos:cap:format:frame_height": {
+                    "enum": [
+                        480,
+                        720,
+                        1080,
+                        2160
+                    ]
+                },
+                "urn:x-nmos:cap:format:sublevel": {
+                    "enum": [
+                        "Sublev3bpp",
+                        "Sublev4bpp"
+                    ]
+                },
+                "urn:x-nmos:cap:format:grain_rate": {
+                    "enum": [
+                        {
+                            "numerator": 24,
+                            "denominator": 1
+                        },
+                        {
+                            "numerator": 30,
+                            "denominator": 1
+                        },
+                        {
+                            "numerator": 3000,
+                            "denominator": 1001
+                        },
+                        {
+                            "numerator": 60,
+                            "denominator": 1
+                        },
+                        {
+                            "numerator": 6000,
+                            "denominator": 1001
+                        }
+                    ]
+                },
+                "urn:x-nmos:cap:format:frame_width": {
+                    "enum": [
+                        720,
+                        1280,
+                        1920,
+                        3840
+                    ]
+                },
+                "urn:x-nmos:cap:format:level": {
+                    "enum": [
+                        "4k-1",
+                        "4k-2",
+                        "4k-3"
+                    ]
+                },
+                "urn:x-nmos:cap:transport:privacy": {
+                    "enum": [
+                        true
+                    ]
+                },
+                "urn:x-nmos:cap:transport:packet_transmission_mode": {
+                    "enum": [
+                        "codestream"
+                    ]
+                },
+                "urn:x-nmos:cap:format:media_type": {
+                    "enum": [
+                        "video/jxsv"
+                    ]
+                },
+                "urn:x-nmos:cap:format:interlace_mode": {
+                    "enum": [
+                        "progressive"
+                    ]
+                },
+                "urn:x-nmos:cap:format:transfer_characteristic": {
+                    "enum": [
+                        "SDR"
+                    ]
+                },
+                "urn:x-nmos:cap:format:colorspace": {
+                    "enum": [
+                        "BT601",
+                        "BT709",
+                        "BT2020"
+                    ]
+                },
+                "urn:x-nmos:cap:format:component_depth": {
+                    "enum": [
+                        8,
+                        10
+                    ]
+                },
+                "urn:x-nmos:cap:format:profile": {
+                    "enum": [
+                        "Main420.12",
+                        "High420.12",
+                        "Main444.12",
+                        "High444.12"
+                    ]
+                },
+                "urn:x-nmos:cap:format:bit_rate": {
+                    "minimum": 802161,
+                    "maximum": 4278190
+                },
+                "urn:x-nmos:cap:format:color_sampling": {
+                    "enum": [
+                        "YCbCr-4:2:0",
+                        "YCbCr-4:2:2",
+                        "YCbCr-4:4:4"
+                    ]
+                }
+            },
+            {
+                "urn:x-nmos:cap:meta:label": "RAW constraints",
+                "urn:x-nmos:cap:meta:enabled": true,
+                "urn:x-nmos:cap:meta:preference": 0,
+                "urn:x-nmos:cap:format:grain_rate": {
+                    "enum": [
+                        {
+                            "numerator": 24,
+                            "denominator": 1
+                        },
+                        {
+                            "numerator": 30,
+                            "denominator": 1
+                        },
+                        {
+                            "numerator": 3000,
+                            "denominator": 1001
+                        },
+                        {
+                            "numerator": 60,
+                            "denominator": 1
+                        },
+                        {
+                            "numerator": 6000,
+                            "denominator": 1001
+                        }
+                    ]
+                },
+                "urn:x-nmos:cap:format:frame_width": {
+                    "enum": [
+                        720,
+                        1280,
+                        1920,
+                        3840
+                    ]
+                },
+                "urn:x-nmos:cap:format:media_type": {
+                    "enum": [
+                        "video/raw"
+                    ]
+                },
+                "urn:x-nmos:cap:transport:privacy": {
+                    "enum": [
+                        true
+                    ]
+                },
+                "urn:x-nmos:cap:format:frame_height": {
+                    "enum": [
+                        480,
+                        720,
+                        1080,
+                        2160
+                    ]
+                },
+                "urn:x-nmos:cap:format:transfer_characteristic": {
+                    "enum": [
+                        "SDR"
+                    ]
+                },
+                "urn:x-nmos:cap:format:colorspace": {
+                    "enum": [
+                        "BT601",
+                        "BT709",
+                        "BT2020"
+                    ]
+                },
+                "urn:x-nmos:cap:format:component_depth": {
+                    "enum": [
+                        8,
+                        10
+                    ]
+                },
+                "urn:x-nmos:cap:format:interlace_mode": {
+                    "enum": [
+                        "progressive"
+                    ]
+                },
+                "urn:x-nmos:cap:format:color_sampling": {
+                    "enum": [
+                        "YCbCr-4:2:0",
+                        "YCbCr-4:2:2",
+                        "YCbCr-4:4:4"
+                    ]
+                }
+            }
+        ]
+    }
+}
