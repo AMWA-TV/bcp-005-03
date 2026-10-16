@@ -1,42 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       <url>
-        <loc>https://specs.amwa.tv/new/bcp-005-03/v1.0.x/</loc>
+        <loc>https://specs.amwa.tv/bcp-005-03/v1.0.x/v1.0.x/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/bcp-005-03/v1.0.x/NMOS-With-IPMX-PEP/</loc>
+        <loc>https://specs.amwa.tv/bcp-005-03/v1.0.x/v1.0.x/404/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/bcp-005-03/v1.0.x/examples/</loc>
+        <loc>https://specs.amwa.tv/bcp-005-03/v1.0.x/v1.0.x/NMOS-With-IPMX-PEP/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/bcp-005-03/v1.0.x/examples/receiver-ecdh-transport-parameters-active/</loc>
+        <loc>https://specs.amwa.tv/bcp-005-03/v1.0.x/v1.0.x/examples/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/bcp-005-03/v1.0.x/examples/receiver-ecdh-transport-parameters-constraints/</loc>
+        <loc>https://specs.amwa.tv/bcp-005-03/v1.0.x/v1.0.x/examples/receiver-ecdh-transport-parameters-active/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/bcp-005-03/v1.0.x/examples/receiver-transport-parameters-active/</loc>
+        <loc>https://specs.amwa.tv/bcp-005-03/v1.0.x/v1.0.x/examples/receiver-ecdh-transport-parameters-constraints/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/bcp-005-03/v1.0.x/examples/receiver-transport-parameters-constraints/</loc>
+        <loc>https://specs.amwa.tv/bcp-005-03/v1.0.x/v1.0.x/examples/receiver-transport-parameters-active/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/bcp-005-03/v1.0.x/examples/receiver/</loc>
+        <loc>https://specs.amwa.tv/bcp-005-03/v1.0.x/v1.0.x/examples/receiver-transport-parameters-constraints/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/bcp-005-03/v1.0.x/examples/sender-ecdh-transport-parameters-active/</loc>
+        <loc>https://specs.amwa.tv/bcp-005-03/v1.0.x/v1.0.x/examples/receiver/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/bcp-005-03/v1.0.x/examples/sender-ecdh-transport-parameters-constraints/</loc>
+        <loc>https://specs.amwa.tv/bcp-005-03/v1.0.x/v1.0.x/examples/sender-ecdh-transport-parameters-active/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/bcp-005-03/v1.0.x/examples/sender-transport-parameters-active/</loc>
+        <loc>https://specs.amwa.tv/bcp-005-03/v1.0.x/v1.0.x/examples/sender-ecdh-transport-parameters-constraints/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/bcp-005-03/v1.0.x/examples/sender-transport-parameters-constraints/</loc>
+        <loc>https://specs.amwa.tv/bcp-005-03/v1.0.x/v1.0.x/examples/sender-transport-parameters-active/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/bcp-005-03/v1.0.x/examples/sender/</loc>
+        <loc>https://specs.amwa.tv/bcp-005-03/v1.0.x/v1.0.x/examples/sender-transport-parameters-constraints/</loc>
+      </url>
+      <url>
+        <loc>https://specs.amwa.tv/bcp-005-03/v1.0.x/v1.0.x/examples/sender/</loc>
+      </url>
+      <url>
+        <loc>https://specs.amwa.tv/bcp-005-03/v1.0.x/v1.0.x/images/</loc>
       </url>
 </urlset>
