@@ -1,4 +1,6 @@
 
+
+
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
@@ -12,6 +14,7 @@
       
       
       
+      
         <link rel="prev" href="./..">
       
       
@@ -22,7 +25,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.71">
+      <meta name="generator" content="zensical-0.1.3">
     
     
       
@@ -33,7 +36,8 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.e442bf79.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.e2cf241e.min.css">
+      
       
       
 
@@ -51,8 +55,6 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
-    
-      <link rel="stylesheet" href="../stylesheets/extra.css">
     
       <link rel="stylesheet" href="../stylesheets/amwa-branding.css">
     
@@ -97,9 +99,10 @@
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
 
     </a>
-    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+    <label class="md-header__button md-icon" for="__drawer">
       
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -125,9 +128,10 @@
     
       
       
-        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+        <label class="md-header__button md-icon" for="__search">
           
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Search</span>
         </label>
         <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
   <button type="button" class="md-search__button">
@@ -1528,6 +1532,8 @@
 <p>The enabling and disabling of privacy encryption is intentionally under manufacturer control, providing flexibility in implementation methods to support diverse deployment environments and security requirements.</p>
 <blockquote>
 <p>Note: The security postulate for a Sender is that privacy-encrypted content remains protected and is never transmitted in clear by any Sender within a device. For a Receiver, the postulate is that content can be trustworthy only when received with privacy encryption, requiring that privacy-encrypted content is never composited, mixed, or multiplexed with content received in clear by other Receivers.</p>
+</blockquote>
+<blockquote>
 <p>Note: Privacy encryption is not a content protection mechanism, and providing access to a low-quality stream violates the privacy objective.</p>
 </blockquote>
 <h2 id="parameters">Parameters</h2>
@@ -1664,6 +1670,8 @@
 <p>A Sender configured with a 256-bit or 512-bit PSK MUST support only modes based on AES-256. A Sender configured with a 128-bit PSK MAY support modes based on AES-128, AES-256, or both.</p>
 <blockquote>
 <p>Note: If the constraints on the IS-05 <code>ext_privacy_mode</code> transport parameter of a Sender only allow modes based on AES-128, it indicates that only 128-bit PSKs are used.</p>
+</blockquote>
+<blockquote>
 <p>Note: The "AES-128-CTR" <code>mode</code> and a PSK of 128-bit are supported by all devices implementing the "RTP" or "RTP_KV" protocols. If a Sender is associated with a 256-bit PSK, then the "AES-128-CTR" <code>mode</code> will not be available for that Sender unless the associated PSK size becomes 128 bit.</p>
 </blockquote>
 <p>A Receiver configured with a 256-bit or 512-bit PSK MUST support modes based on AES-256. A Receiver configured with a 128-bit PSK MUST support modes based on AES-128. A Receiver MAY support both AES-128 and AES-256-based modes simultaneously. A Receiver MUST fail activation if a <code>key_id</code> associated with a 256-bit or 512-bit PSK is used with a <code>mode</code> that is not based on AES-256.</p>
@@ -1896,12 +1904,11 @@ If the Sender's <code>privacy</code> attribute is <code>true</code>, the <code>e
       
         
         
-      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.footer"],"redirect":null,"search":"../assets/javascripts/workers/search.c47bb847.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"provider":"mike"}}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.footer"],"redirect":null,"search":"../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"provider":"mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.a2388154.min.js"></script>
+      <script src="../assets/javascripts/bundle.9e76c64c.min.js"></script>
       
-        <script src="../javascripts/json-viewer.js"></script>
       
         <script src="../javascripts/amwa-branding.js"></script>
       
